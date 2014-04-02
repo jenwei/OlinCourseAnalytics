@@ -7,7 +7,8 @@ Created on Mon Mar 31 14:30:15 2014
 import csv
 from Professor import *
 from parse_course_data import *
-from addDataPoint import *
+from moreParseData import *
+from DataPoint import *
 
 #creates lists of students, courses, and profs, so they can, in the future, be referred to and organized by their list index
 #this just makes the numbers less weird and makes it easier to iterate through all students, courses, or profs
@@ -30,6 +31,7 @@ for course in coursesByNames:
 for prof in professorsByNames:
     professors.append(prof)
 
+
 class DataPoint:
     def __init__(self, gradYear, stuID, stuGen, stuSem, stuMaj, courseID, profID):
         self.gradYear = gradYear
@@ -45,15 +47,12 @@ class DataPoint:
 
 
 
-
-
-
 def createDataPoints():
     f= open(dataFileName, 'rU')
     fileContents = csv.reader(f)
     allData = []
     for row in fileContents:
-        attrs = addDataPoint(row)
+        attrs = moreParseData(row)
         #order of attrs is: *means we don't care
         #academic status (graduated or not) *
         #graduation year
@@ -77,8 +76,9 @@ def createDataPoints():
             profID = professors.index(attrs[11].strip())
             dp = DataPoint(gradYear, stuID, stuGen, stuSem, stuMaj, courseID, profID)
             allData.append(dp)
+    return allData
 
-createDataPoints()
+
             
 
 
