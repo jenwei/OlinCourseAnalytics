@@ -8,7 +8,6 @@ import csv
 from Professor import *
 from parse_course_data import *
 from moreParseData import *
-from DataPoint import *
 
 #creates lists of students, courses, and profs, so they can, in the future, be referred to and organized by their list index
 #this just makes the numbers less weird and makes it easier to iterate through all students, courses, or profs
