@@ -2,5 +2,5 @@
 var models = require('../models/models.js');
 
 exports.goals = function(){
-	res.render('course', {});
+	res.render('patient', {});
 };

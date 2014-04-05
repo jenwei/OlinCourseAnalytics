@@ -10,7 +10,7 @@ var http = require('http');
 var path = require('path');
 var mongoose = require('mongoose');
 
-// INSERT OUR FILES HERE
+// diabuddies files
 var ingredient = require("./routes/patient");
 var orders = require("./routes/signup");
 
@@ -56,8 +56,7 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/users', user.list);
 
-
-//INSERT OUR PAGES HERE
+// diabuddies pages
 app.get('/patient/goals', patient.goals);
 app.get('/signup/patient', signup.patient);
 app.get('/signup/mediator', signup.patient);

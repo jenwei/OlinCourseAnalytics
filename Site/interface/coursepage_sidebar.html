@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
-    <title>diabuddies Dashboard!</title>
+    <title>Dashboard Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -27,7 +27,7 @@
 
   <body>
 
-    <div class="navbar navbar-custom navbar-inverse navbar-static-top" role="navigation">
+    <div class="navbar navbar-inverse navbar-static-top navbar-custom" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -36,7 +36,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">diabuddies</a>
+          <a class="navbar-brand" href="#">Project Name</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -56,62 +56,105 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">[Patient] Jane Doe</a></li>
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#"><b>Progress</b></a></li>
-            <li><a href="#">Community</a></li>
-              <ul>
-                <li><a href="#">Discussion</a></li>
-                <li><a href="#">Programs</a></li>
-                <li><a href="#">Mediators</a></li>
-              </ul>
-            <li><a href="">Settings</a></li>
+            <li class="active"><a href="#"><strong>Course Name:</strong> [INSERT NAME HERE]</a></li>
+            <li><a href="#">Patient #1</a></li>
+	    <li><a href="#">Group Discussion</a></li>
           </ul>
         </div>
 
-        <div class="col-sm-3 col-md-9 main">
-          <h1 class="page-header">Goal History</h1>
-          <h2 class="sub-header">Walk for 30min after lunch daily this week with Anne (coworker)</h2>
+        <div class="col-sm-3 col-md-6 main">
+          <h1 class="page-header"; style = "color:Grey"><strong>Dashboard</strong></h1>
+          <h2 class="sub-header" style = "font-size:20px">Patient Summaries:</h2>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>Week</th>
-                  <th>Assigned by (mediator)</th>
-                  <th>Did it?</th>
+                  <th>Patient</th>
+                  <th>Current Goal</th>
+                  <th>Progress</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>March 09-15, 2014</td>
-                  <td>John</td>
-                  <td>5/7 days</td>
+                  <td>1</td>
+                  <td>Run twice this week</td>
+                  <td>1/2 completed</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Cut one carbohydrate this week</td>
+                  <td>Completed!</td>
                 </tr>
               </tbody>
             </table>
           </div>
-
-          <h2 class="sub-header">Walk for 30min after lunch every other day this week with Anne (coworker)</h2>
+	  <h2 class="sub-header" style = "font-size:20px;color:White">SPACE</h2>
+	  <h2 class="sub-header" style = "font-size:20px">Individual Discussions</h2>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>Week</th>
-                  <th>Assigned by (mediator)</th>
-                  <th>Did it?</th>
+                  <th>Patient</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>March 02-08, 2014</td>
-                  <td>John</td>
-                  <td>6/7 days</td>
+                  <td><a href="http://cuteoverload.com/">1</a></td>
+                </tr>
+                <tr>
+                  <td><a href="http://cuteoverload.com/">2</a></td>
                 </tr>
               </tbody>
             </table>
           </div>
-
-
+        </div>
+	<div class="col-sm-3 col-md-4 main">
+          <h1 class="page-header"; style = "color:White"><strong>Sidebar</strong></h1>
+          <h2 class="sub-header" style = "font-size:20px">Schedule</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Patient</th>
+                  <th>Next Scheduled Meeting</th>
+                  <th>Meeting Time</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Wednesday, 03/19/2014</td>
+                  <td>3:00 pm EST</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Friday, 03/28/2014</td>
+                  <td>10:00 pm EST</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+	  <h2 class="sub-header" style = "font-size:20px;color:White">SPACE</h2>
+	  <h2 class="sub-header" style = "font-size:20px">Notes</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Patient</th>
+                  <th>Other Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Has not accomplished goal for two weeks - needs check in</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Diligent with completing goals</td>
+                </tr>
+              </tbody>
+            </table>
         </div>
       </div>
     </div>

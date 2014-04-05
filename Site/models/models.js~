@@ -11,7 +11,7 @@ var mediatorSchema = mongoose.Schema({
     mediatorName: String,
 });
 
-//MAKE OUR SCHEMAS INTO MODELS
+
 //make the schemas into models
 var Patient = mongoose.model('Patient', ingredientSchema);
 var Mediator = mongoose.model('Mediator', orderSchema);

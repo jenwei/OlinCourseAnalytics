@@ -1,4 +1,4 @@
-diabuddies
+Olin Course Analytics
 ==========
 
-[healthcare hackathon] a crowdsourced buddy system for gradual behavior modification for patients of diabetes (and other chronic diseases)
+A site made for Olin students, by Olin students, to visualize data regarding courses.
