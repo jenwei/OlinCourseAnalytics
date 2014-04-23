@@ -26,7 +26,7 @@ def course(request, course_id):
 	courseid = 'ENGR1111'
 	popularity = '68'
 	requirement = {'General': False, 'ECE': True, 'EC': True, 'ME': False, 'RE': False, 'BE': False}
-	description = "Lorem ipsum dolor sit amet, percipit voluptaria usu et. Cu postea scripserit est. Mei at consul euripidis theophrastus, ne ancillae delectus eum. Ad eros scribentur delicatissimi eos, te pro laudem iisque placerat, at fuisset commune postulant nec. Cu mea salutatus referrentur."
+	description = "Software Design is a programming course taught in Python. Through this course, students will be taught about: supporting tools such as Linux, Git, Spyder, etc., interfacing with external software packages, software engineering skills, and beyond! "
 	coursesearch = ['Software Design', 'Real World Measurements', 'Happiness']
 	context = {'coursetitle': coursetitle , 'courseid': courseid, 'popularity': popularity, 'requirement': requirement, 'description': description, 'coursesearch': coursesearch } 
 	return render(request, 'courses/course.jade', context)
