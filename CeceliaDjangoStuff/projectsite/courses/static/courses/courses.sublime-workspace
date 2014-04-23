@@ -1,0 +1,349 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"all",
+				"all_courses_list"
+			],
+			[
+				"Metric",
+				"MetricInline"
+			],
+			[
+				"Course",
+				"CourseAdmin"
+			],
+			[
+				"todolist",
+				"todolistitem"
+			],
+			[
+				"random",
+				"randomcolors"
+			],
+			[
+				"User",
+				"userSchema"
+			],
+			[
+				"form",
+				"formidable"
+			],
+			[
+				"text",
+				"textarea"
+			],
+			[
+				"postData",
+				"postDatachunk"
+			],
+			[
+				"re",
+				"requestHandlers"
+			],
+			[
+				"bro",
+				"browser_socket"
+			],
+			[
+				"dy",
+				"dy2dt"
+			],
+			[
+				"input",
+				"inputhtml1"
+			],
+			[
+				"end",
+				"endchat"
+			],
+			[
+				"ps",
+				"parse"
+			],
+			[
+				"req",
+				"require"
+			],
+			[
+				"type",
+				"typeof"
+			],
+			[
+				"coo",
+				"cookie"
+			],
+			[
+				"c",
+				"checkCookie"
+			],
+			[
+				"post",
+				"postData"
+			],
+			[
+				"r",
+				"response"
+			],
+			[
+				"pos",
+				"postData"
+			],
+			[
+				"wri",
+				"writeHead"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "Packages/Python/Python.sublime-build",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/Cecelia/Desktop/Software_Design/OlinCourseAnalytics/CeceliaDjangoStuff/projectsite/courses/static/courses/style.sass",
+		"/Users/Cecelia/Desktop/Software_Design/OlinCourseAnalytics/CeceliaDjangoStuff/projectsite/courses/models.pyc",
+		"/Users/Cecelia/Desktop/RWM/rwmarduinolab/Arduino/libraries/RWM/RWM.h",
+		"/Users/Cecelia/Desktop/RWM/rwmarduinolab/Arduino/libraries/RWM2/RWM2.cpp",
+		"/Users/Cecelia/Desktop/RWM/rwmarduinolab/Arduino/libraries/RWM/RWM.cpp",
+		"/Users/Cecelia/Desktop/Software_Design/OlinCourseAnalytics/CeceliaDjangoStuff/projectsite/courses/urls.py",
+		"/Users/Cecelia/Desktop/Software_Design/OlinCourseAnalytics/CeceliaDjangoStuff/projectsite/courses/templates/courses/index.html",
+		"/Users/Cecelia/Desktop/Software_Design/OlinCourseAnalytics/CeceliaDjangoStuff/projectsite/courses/templates/courses/course.html",
+		"/Users/Cecelia/Desktop/Software_Design/OlinCourseAnalytics/CeceliaDjangoStuff/projectsite/courses/views.py",
+		"/Users/Cecelia/Desktop/Software_Design/OlinCourseAnalytics/CeceliaDjangoStuff/projectsite/courses/admin.py",
+		"/Users/Cecelia/Desktop/Software_Design/OlinCourseAnalytics/CeceliaDjangoStuff/projectsite/courses/models.py",
+		"/Users/Cecelia/Desktop/Software_Design/OlinCourseAnalytics/CeceliaDjangoStuff/projectsite/projectsite/settings.py",
+		"/Users/Cecelia/Desktop/Software_Design/OlinCourseAnalytics/CeceliaDjangoStuff/projectsite/projectsite/urls.py",
+		"/Users/Cecelia/Desktop/Software_Design/OlinCourseAnalytics/CeceliaDjangoStuff/projectsite/courses/templates/course.html",
+		"/Users/Cecelia/Desktop/Software_Design/OlinCourseAnalytics/CeceliaDjangoStuff/projectsite/courses/untitled",
+		"/Users/Cecelia/Desktop/Software_Design/OlinCourseAnalytics/CeceliaDjangoStuff/projectsite/courses/templates/polls/index.html",
+		"/Users/Cecelia/Desktop/Software_Design/OlinCourseAnalytics/CeceliaDjangoStuff/projectsite/manage.py",
+		"/Users/Cecelia/Desktop/Software_Design/OlinCourseAnalytics/CeceliaDjangoStuff/mysite/mysite/settings.py",
+		"/Users/Cecelia/Desktop/Software_Design/OlinCourseAnalytics/CeceliaDjangoStuff/mysite/manage.py",
+		"/Users/Cecelia/Desktop/Software_Design/OlinCourseAnalytics/CeceliaDjangoStuff/mysite/polls/models.py",
+		"/Users/Cecelia/Desktop/Software_Design/OlinCourseAnalytics/Website/bootstrap_template.html",
+		"/Users/Cecelia/Desktop/Software_Design/OlinCourseAnalytics/Website/dashboard.css",
+		"/Users/Cecelia/Desktop/Software_Design/OlinCourseAnalytics/bootstrap_template.html",
+		"/Users/Cecelia/Desktop/Software_Design/SoftwareDesign/inclass18/problem_1_tests.py",
+		"/Users/Cecelia/Desktop/Software_Design/SoftwareDesign/inclass18/problem_3_tests.py",
+		"/Users/Cecelia/Desktop/Software_Design/SoftwareDesign/inclass18/problem_4_tests.py",
+		"/Users/Cecelia/Desktop/OLIN_JS/olinjs-2-hw/views/cats.jade",
+		"/Users/Cecelia/Desktop/OLIN_JS/olinjs-2-hw/routes/cats.js",
+		"/Users/Cecelia/Desktop/OLIN_JS/olinjs-3/views/layout.jade",
+		"/Users/Cecelia/Desktop/OLIN_JS/olinjs-3/public/javascripts/todo.js",
+		"/Users/Cecelia/Desktop/OLIN_JS/olinjs-3/views/index.jade",
+		"/Users/Cecelia/Desktop/OLIN_JS/olinjs-2-hw/views/newcat.jade",
+		"/Users/Cecelia/Desktop/OLIN_JS/olinjs-2-hw/app.js",
+		"/Users/Cecelia/Desktop/OLIN_JS/olinjs-2-hw/schema.js",
+		"/Users/Cecelia/Desktop/OLIN_JS/olinjs-3/app.js",
+		"/Users/Cecelia/Desktop/OLIN_JS/olinjs-3-hw/views/layout.jade",
+		"/Users/Cecelia/Desktop/OLIN_JS/olinjs-3-hw/app.js",
+		"/Users/Cecelia/Desktop/OLIN_JS/olinjs-3/routes/index.js",
+		"/Users/Cecelia/Desktop/OLIN_JS/olinjs-3-hw/views/new_ingredient.jade",
+		"/Users/Cecelia/Desktop/OLIN_JS/olinjs-3-hw/routes/ingredient.js",
+		"/Users/Cecelia/Desktop/OLIN_JS/olinjs-3-hw/views/create.jade",
+		"/Users/Cecelia/Desktop/OLIN_JS/olinjs-3-hw/routes/index.js",
+		"/Users/Cecelia/Desktop/OLIN_JS/olinjs-3-hw/routes/new_ingredient.js",
+		"/Users/Cecelia/Desktop/OLIN_JS/olinjs-3-hw/views/index.jade",
+		"/Users/Cecelia/Desktop/OLIN_JS/olinjs-3-hw/Screen Shot 2013-01-29 at 10.42.43 PM.png",
+		"/Users/Cecelia/Desktop/OLIN_JS/olinjs-3/views/test.jade",
+		"/Users/Cecelia/Desktop/OLIN_JS/olinjs-2-hw/views/index.jade",
+		"/Users/Cecelia/Desktop/OLIN_JS/olinjs-2-hw/views/layout.jade",
+		"/Users/Cecelia/Desktop/OLIN_JS/olinjs-2-hw/routes/user.js",
+		"/Users/Cecelia/Desktop/OLIN_JS/olinjs-2-hw/routes/index.js",
+		"/Users/Cecelia/Desktop/OLIN_JS/olinjs-2/routes/user.js",
+		"/Users/Cecelia/Desktop/OLIN_JS/olinjs-2-hw/routes/cats",
+		"/Users/Cecelia/Desktop/OLIN_JS/olinjs-2/views/index.jade",
+		"/Users/Cecelia/Desktop/OLIN_JS/olinjs-2/app.js",
+		"/Users/Cecelia/Desktop/OLIN_JS/olinjs-2/express_app/app.js",
+		"/Users/Cecelia/Desktop/OLIN_JS/olinjs-2/app1.js",
+		"/Users/Cecelia/Desktop/OLIN JS/olinjs-1-hw/helloworld.js",
+		"/Users/Cecelia/Desktop/OLIN JS/olinjs-1-hw/node_beginner/server.js",
+		"/Users/Cecelia/Desktop/OLIN JS/olinjs-1-hw/node_beginner/testform.js",
+		"/Users/Cecelia/Desktop/OLIN JS/olinjs-1-hw/node_beginner/router.js",
+		"/Users/Cecelia/Desktop/OLIN JS/olinjs-1-hw/node_beginner/index.js",
+		"/Users/Cecelia/Desktop/OLIN_JS/olinjs-1-hw/node_beginner/requestHandlers.js",
+		"/Users/Cecelia/Desktop/OLIN JS/olinjs-1-hw/node_beginner/requestHandlers.js",
+		"/Users/Cecelia/Desktop/olinjs-1/app.js",
+		"/Users/Cecelia/Desktop/olinjs-1/twitter/app.js",
+		"/Users/Cecelia/Desktop/olinjs-1/twitter/.env",
+		"/Users/Cecelia/Desktop/olinjs-1/twitter/views/stream.jade",
+		"/Users/Cecelia/Desktop/olinjs-1/process.env",
+		"/Users/Cecelia/Desktop/practice_node/chatbox/app_cookies.js",
+		"/Library/WebServer/Documents/Lost_Found/entersearch.php",
+		"/Library/WebServer/Documents/Lost_Found/androidsearch.php",
+		"/Users/Cecelia/Desktop/practice_node/chatbox/handler_cookies.js",
+		"/Users/Cecelia/Desktop/practice_node/chatbox/size.js",
+		"/Users/Cecelia/Desktop/practice_node/chatbox/handler.js",
+		"/Users/Cecelia/Desktop/practice_node/server.js",
+		"/Users/Cecelia/Desktop/practice_node/chatbox/cookies.js",
+		"/Users/Cecelia/Desktop/practice_node/chatbox/index.js",
+		"/Users/Cecelia/Desktop/practice_node/chatbox/router.js",
+		"/Users/Cecelia/Desktop/practice_node/chatbox/requestHandlers.js",
+		"/Users/Cecelia/Desktop/practice_node/chatbox/show.js",
+		"/Users/Cecelia/Desktop/practice_node/hello.txt",
+		"/Users/Cecelia/Desktop/helloworld.js",
+		"/Users/Cecelia/Desktop/index.js",
+		"/Users/Cecelia/Desktop/server.js"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"RWM",
+			"poll",
+			"latest_poll_list",
+			"admin",
+			")\n",
+			"		var form = $('<form method=\"post\" action=\"/delete/>'+$('#todolist li').length()+'\"><button>Delete</button></form>');\n		$(li).append(form);",
+			"});\n",
+			"cat",
+			"chatname",
+			"username",
+			"usir",
+			"req.cookies",
+			"subscriber",
+			"inputhtml1",
+			"end",
+			"inputhtml0",
+			"inputhtml1",
+			"/show",
+			"console.",
+			"chats",
+			"inputhtml",
+			"usur",
+			"chatbox",
+			"request",
+			"response",
+			"cookiejar",
+			"username",
+			"route;",
+			"start",
+			"handler.show",
+			"pathname",
+			"postData",
+			");\n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 60.0
+	},
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/Users/Cecelia/Desktop/modsim_graphs_imp_act.m"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}

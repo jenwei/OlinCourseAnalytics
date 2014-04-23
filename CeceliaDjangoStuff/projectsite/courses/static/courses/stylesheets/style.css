@@ -1,0 +1,144 @@
+html, body {
+  height: 75%;
+  width: 100%;
+  font-family: Calibri, sans-serif;
+  padding: 0.5em;
+  color: gray; }
+
+h1, h2, p {
+  margin: 0em; }
+
+#header {
+  margin-bottom: 1em;
+  padding: 0.4em;
+  border: 0.3em solid #ffb92a;
+  width: 57em;
+  -webkit-border-radius: 0.2em;
+  -moz-border-radius: 0.2em;
+  -ms-border-radius: 0.2em;
+  border-radius: 0.2em; }
+
+#footer ul {
+  padding: 0em;
+  list-style-type: none; }
+  #footer ul li {
+    float: left;
+    padding: 1em;
+    margin: 2em;
+    border: 0.1em solid #ffb92a;
+    width: 6em;
+    height: 6em;
+    line-height: 6em;
+    -webkit-border-radius: 4em;
+    -moz-border-radius: 4em;
+    -ms-border-radius: 4em;
+    border-radius: 4em;
+    background-color: #ffb92a;
+    text-align: center;
+    color: white; }
+    #footer ul li a {
+      color: white;
+      text-decoration: none; }
+
+#header h1 {
+  font-family: Courier, sans-serif;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+  padding-left: 0.3em;
+  margin: 0em; }
+
+#sidebar {
+  float: left;
+  width: 15em;
+  margin-right: 2em;
+  height: 25em;
+  font-family: Calibri, sans-serif;
+  /*background-color: red */
+  border: 0.3em solid #ffb92a;
+  -webkit-border-radius: 0.2em;
+  -moz-border-radius: 0.2em;
+  -ms-border-radius: 0.2em;
+  border-radius: 0.2em;
+  display: inline;
+  padding: 0.4em; }
+  #sidebar #allsearchtags {
+    position: relative;
+    top: 13em; }
+    #sidebar #allsearchtags ul {
+      padding: 0em;
+      margin: 0em; }
+      #sidebar #allsearchtags ul li {
+        list-style-type: none;
+        margin: 0em;
+        margin-right: 0.2em;
+        margin-top: 0.2em;
+        padding: 0em;
+        float: left;
+        border: 1px solid #eaedf2;
+        -webkit-border-radius: 0.1em;
+        -moz-border-radius: 0.1em;
+        -ms-border-radius: 0.1em;
+        border-radius: 0.1em;
+        background: #eaedf2; }
+  #sidebar form {
+    display: block;
+    margin-bottom: 1em;
+    padding: 1em 1em 1em 0em;
+    height: 1em; }
+    #sidebar form p {
+      padding: 0.2em; }
+    #sidebar form input {
+      margin-bottom: 0.5em;
+      outline: none;
+      font-size: 18px;
+      font-family: inherit;
+      border: 1px solid #eaedf2;
+      -webkit-border-radius: 0.1em;
+      -moz-border-radius: 0.1em;
+      -ms-border-radius: 0.1em;
+      border-radius: 0.1em;
+      background: #eaedf2; }
+    #sidebar form button {
+      border: 1px solid #eaedf2;
+      -webkit-border-radius: 0.1em;
+      -moz-border-radius: 0.1em;
+      -ms-border-radius: 0.1em;
+      border-radius: 0.1em;
+      outline: none;
+      font-family: inherit;
+      background: #eaedf2;
+      font-size: 18px; }
+    #sidebar form #submitsearch {
+      position: absolute;
+      top: 22em; }
+    #sidebar form .inputbox {
+      padding: 0.5em 0.5em 0.5em 0.5em;
+      width: 90%; }
+    #sidebar form .button {
+      margin: 0.5em 0.5em 0.5em 0em;
+      color: inherit; }
+    #sidebar form .button:hover {
+      background: white;
+      border: 1px solid white; }
+  #sidebar ol {
+    padding: 0em;
+    list-style-type: none; }
+    #sidebar ol li {
+      padding: 0.1em; }
+      #sidebar ol li a {
+        text-decoration: none;
+        color: black; }
+
+#center {
+  width: 40em;
+  height: 100%;
+  padding: 0.4em;
+  -webkit-border-radius: 0.2em;
+  -moz-border-radius: 0.2em;
+  -ms-border-radius: 0.2em;
+  border-radius: 0.2em;
+  /*background-color: blue */
+  border: 0.3em solid #ffb92a;
+  margin-left: 17em; }
+  #center h1, #center h2 {
+    margin: 0em; }
