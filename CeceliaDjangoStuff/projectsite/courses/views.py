@@ -2,7 +2,7 @@ from django.shortcuts import render
 #from django.http import HttpResponse
 #from django.template import RequestContext, loader
 #from 
-from courses.models import Course, Metrics
+from courses.models import Course #, Metrics
 
 def index(request):
 	all_courses_list = Course.objects.all()
