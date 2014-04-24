@@ -1,7 +1,8 @@
 from django.shortcuts import render
 #from django.http import HttpResponse
 #from django.template import RequestContext, loader
-from courses.models import Course
+#from 
+from courses.models import Course, Metrics
 
 def index(request):
 	all_courses_list = Course.objects.all()
@@ -27,6 +28,7 @@ def course(request, course_id):
 	popularity = '68'
 	requirement = {'General': False, 'ECE': True, 'EC': True, 'ME': False, 'RE': False, 'BE': False}
 	description = "Software Design is a programming course taught in Python. Through this course, students will be taught about: supporting tools such as Linux, Git, Spyder, etc., interfacing with external software packages, software engineering skills, and beyond! "
+	#courseS	
 	coursesearch = ['Software Design', 'Real World Measurements', 'Happiness']
 	context = {'coursetitle': coursetitle , 'courseid': courseid, 'popularity': popularity, 'requirement': requirement, 'description': description, 'coursesearch': coursesearch } 
 	return render(request, 'courses/course.jade', context)
