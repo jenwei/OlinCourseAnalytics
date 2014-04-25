@@ -4,18 +4,9 @@ from django.http import HttpResponse
 #from 
 from courses.models import Course #, Metrics
 
-def index(request,searched):
+def index(request):
 	all_course_list = {'Software','Networks','Circuits'}
-	searched_list = {}
-	if searched in all_course_list:
-		return HttpResponse(searched)
-	else:
-		for searched in courseName for courseName in all_course_list:
-			searched_list.append(courseName}
-		if searched_list != {}:
-			return HttpResponse(Did you mean? '%s'" % searched_list)
-		else: 
-			return ("Sorry - please search again")
+	return HttpResponse(all_course_list)
 	#return render(request, 'courses/index.jade', all_course_list)
 	#all_courses_list = Course.objects.all()
 	#context = {'all_courses_list':all_courses_list}
