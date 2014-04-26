@@ -1,23 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import RequestContext, loader
-#from 
 from courses.models import Course #, Metrics
 
 def index(request):
-#def index(request,searched):
-	#all_course_list = {'Software','Networks','Circuits'}
-	#searched_list = {}
-	#if searched in all_course_list:
-		#return HttpResponse(searched)
-	#else:
-		#for searched in courseName for courseName in all_course_list:
-			#searched_list.append(courseName}
-		#if searched_list != {}:
-			#return HttpResponse(Did you mean? '%s'" % searched_list)
-		#else: 
-			#return ("Sorry - please search again")
-	#return render(request, 'courses/index.jade', all_course_list)
 	all_courses_list = Course.objects.all()
 	context = {'all_courses_list':all_courses_list}
 	return render(request, 'courses/index.jade', context)
@@ -48,11 +34,40 @@ def course(request, course_id):
 
 def compare(request):
 	""" for the comparator page"""
+
 	return render(request, 'courses/compare.jade')
 
 def split(request):
 	"""for the custom search page"""
 	return render(request, 'courses/split.jade')
+
+"""
+BELOW IS CODE FOR the SEARCHES OF EACH PAGE
+
+def course(request,input):
+	pseudo-code - check the db for the request
+			if the request is not there - message = "sorry" return HttpResponse(message)
+			if request is there, message = "You searched for: %s" %request.GET['classname']
+
+	courses_list = Course.objects.filter(courseID = input) |\ Course.objects.filter(coursetitle = input)
+	context = {'courses_list':courses_list}
+	return render(request, 'courses/index.jade', context)
+
+def compare(request,input1,input2,input3 = null):
+	course1 = Course.objects.filter(courseID = input1) |\ Course.objects.filter(coursetitle = input1)
+	context1 = {'course1':course1}
+	course2 = Course.ojects.filer(courseID = input2) |\ Course.objects.filter(coursetitle = input2)
+	context2 = {'course2':course2}
+	course3 = Course.objects.filer(courseID = input3) |\ Course.objects.filter(coursetitle = input3)
+	context3 = {'course3':course3}
+	return render(request, 'courses/index.jade', context1,context2,context3)
+	
+def split(request, searchlist):
+	searched_data = {}
+	for i in 
+
+
+"""
 
 """
 def course(request, course_id):
