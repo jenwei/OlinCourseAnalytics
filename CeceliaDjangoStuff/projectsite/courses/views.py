@@ -1,25 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-#from django.template import RequestContext, loader
+from django.template import RequestContext, loader
 #from 
 from courses.models import Course #, Metrics
 
-def index(request,searched):
-	all_course_list = {'Software','Networks','Circuits'}
-	searched_list = {}
-	if searched in all_course_list:
-		return HttpResponse(searched)
-	else:
-		for searched in courseName for courseName in all_course_list:
-			searched_list.append(courseName}
-		if searched_list != {}:
-			return HttpResponse(Did you mean? '%s'" % searched_list)
-		else: 
-			return ("Sorry - please search again")
-	#return render(request, 'courses/index.jade', all_course_list)
-	#all_courses_list = Course.objects.all()
-	#context = {'all_courses_list':all_courses_list}
-	#return render(request, 'courses/index.jade', context)
+def index(request):
+	all_courses_list = Course.objects.all()
+	context = {'all_courses_list':all_courses_list}
+	return render(request, 'courses/index.jade', context)
 	
 	#word{object_list.count|pluralize}
 	#render(request, template url, context -> a thing that maps template variable names to python objects, like the actual list with courses in it)
@@ -32,8 +20,8 @@ def index(request,searched):
 	#response_output = ', '.join([c.coursetitle for c in all_courses_list])
 	#return HttpResponse(template.reader(context))
 
-
 def course(request, course_id):
+	"""for the course page"""
 	course = Course.objects.get(pk=course_id)
 	coursetitle = 'Software Design'
 	courseid = 'ENGR1111'
@@ -46,9 +34,11 @@ def course(request, course_id):
 	return render(request, 'courses/course.jade', context)
 
 def compare(request):
+	""" for the comparator page"""
 	return render(request, 'courses/compare.jade')
 
 def split(request):
+	"""for the custom search page"""
 	return render(request, 'courses/split.jade')
 
 """
