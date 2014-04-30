@@ -1,0 +1,26 @@
+extends courses/layout
+
+block content
+	div(id="tabs")
+		li 
+			a(href="") Course Search
+		li 
+			a(href="") Compare Courses
+		li 
+			a(href="") Data Split
+	div(id="sidebar")
+		div(id="courseside")
+			include courses/includes/courseside
+		div(id="compareside")
+			include courses/includes/compareside
+		div(id="splitside")
+			include courses/includes/splitside
+		div(id="hidesidebar")
+			a(href="") Hide
+	div(id="center")
+		div(id="coursecenter", class="center")
+			include courses/includes/coursecenter
+		div(id="comparecenter", class="center")
+			include courses/includes/comparecenter
+		div(id="splitcenter", class="center")
+			include courses/includes/splitcenter

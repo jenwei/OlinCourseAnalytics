@@ -1,11 +1,16 @@
-$sidewidth:15em
-$sidemargin: 2em
-$centerwidth: 40em
-$centermargin: $sidewidth +$sidemargin
 $borderwidth: 0.3em
-$pagewidth: $centermargin+$centerwidth 
+$sidewidth: 15em
+$sideleftmargin: 5em
+$siderightmargin: 3em
+$sideheight: 8.75em*3
+$centerwidth: 50em
+$centermargin: 5em //$sidewidth +$sidemargin
+$pagewidth: $centermargin+$centerwidth +2*$borderwidth
 $primaryfont: Calibri, sans-serif
-$color: #FFB92A
+$color: #FFCD3E
+//$color: #FFB92A
+//$color: #EC8584
+$color0: #CE6766
 $color1: #ED5314
 $color2: #FEEB51
 $color3: #9BCA3E
@@ -22,76 +27,136 @@ $borderradius: 0.2em
 	-ms-border-radius:     $radius
 	border-radius:         $radius
 
+=addBorder($radius, $color)
+	border: $borderwidth solid $color
+	+bradius($radius)
+
 =roundedGrayBackground()
 	border: 1px solid #eaedf2
 	+bradius(0.1em)
 	background: $thegraycolor
-	
+
+=rotateText($degrees) 
+	// $degrees syntax --> -90deg
+	-webkit-transform: rotate($degrees)
+	-moz-transform: rotate($degrees)
+
+=formatLinkText($textcolor)
+	text-decoration: none
+	color: $textcolor	
 
 
 html, body
 	height: 75%
-	width: 100%
+	//width: $pagewidth
 	font-family: $primaryfont
-	padding: 0.5em
+	padding: 0em
+	margin-top: 0.2em
+	margin-left: 0.2em
 	color: gray
 
 
 h1, h2, p
 	margin: 0em
 
+
 #header 
 	margin-bottom: 1em
-	padding: $textblockpadding
-	border: $border
-	width: $pagewidth
-	+bradius($borderradius)
+	//padding: $textblockpadding
+	width: 100% 
+	//+addBorder($borderradius, $color)
 
-#footer
-	ul 
-		padding: 0em
-		list-style-type: none
-		
-		li
-			float: left
-			padding: 1em
-			margin: 2em
-			border: 0.1em solid $color
-			width: 6em
-			height: 6em
-			line-height: 6em
-			+bradius(4em)
-			background-color: $color
-			text-align: center
-			color: white
+	#title
+		h1
+			width: 10em
+			font-family: Courier, sans-serif
+			padding-top: 0.3em
+			height: 2em
+			line-height: 2em
+			padding-bottom: 0.3em
+			padding-left: 0.3em
+			margin: 0em
 
 			a
-				color: white
-				text-decoration: none
+				+formatLinkText(gray)
+
+	#navbar
+		position: absolute
+		top: 2.6em
+		margin-left: 20em
+		ul
+			margin: 0em
+			padding: 0em
+			li
+				list-style-type: none
+				display: inline
+				margin: 0em 1em 0em 1em
+				padding: 0.9em 3em 0.8em 3em
+				//background-color: $color
+				
+				a
+					+formatLinkText(gray)
+					font-family: $primaryfont
+			li:hover
+				a
+					color: $color
 
 
-#header h1
-	font-family: Courier, sans-serif
-	padding-top: 0.3em
-	padding-bottom: 0.3em
-	padding-left: 0.3em
-	margin: 0em
+#tabs
+	position: absolute
+
+	//ul
+	//	margin: 0
+	//	padding: 0
+
+	li 
+		position: relative
+		right: 3em
+		bottom: 1.5em
+		margin: 3.5em 0em 3.5em 0em
+		text-align: center
+		list-style-type: none
+		+rotateText(-90deg)
+		background-color: $color
+		+addBorder($borderradius, $color)
+
+		a
+			height: 5em
+			line-height: 5em
+			text-align: center
+			margin: 3.5em 0em 3.5em 0em
+			padding: 0em 1em 0em 1em
+			+formatLinkText(gray)
+
+	li:hover
+		background-color: $thegraycolor
+		border: $borderwidth solid $thegraycolor
 
 #sidebar
 	float: left
 	width: $sidewidth
-	margin-right: $sidemargin
-	height: 25em
+	margin-right: $siderightmargin
+	margin-left: $sideleftmargin
+	height: $sideheight
 	font-family: $primaryfont
 	/*background-color: red
-	border: $border
-	+bradius($borderradius)
+	+addBorder($borderradius, gray)
 	display: inline
 	padding: $textblockpadding
+	position: relative
+	background: $color
+	position: relative
+
+	a 
+		+formatLinkText(gray)
+
+	#hidesidebar 
+		position: absolute
+		bottom: 1em
 
 	#allsearchtags
 		position: relative
-		top: 13em
+		top: 11em
 		ul
 			//border-top: 0.1em solid $thegraycolor
 			padding: 0em
@@ -131,20 +196,30 @@ h1, h2, p
 
 		#submitsearch 
 			position: absolute
-			top: 22em
+			top: 0.1em
+			right: 0.3em
 
 		.inputbox
 			padding: 0.5em 0.5em 0.5em 0.5em
 			width: 90%
+			+roundedGrayBackground()
+	
+	button
+		border: 1px solid #eaedf2
+		+bradius(0.1em)
+		outline: none
+		font-family: inherit
+		background: $thegraycolor
+		font-size: 18px
 
-		.button
-			//padding: 0.1em
-			margin: 0.5em 0.5em 0.5em 0em
-			color: inherit
+	.button
+		//padding: 0.1em
+		margin: 0.5em 0.5em 0.5em 0em
+		color: inherit
 
-		.button:hover 
-			background: white
-			border: 1px solid white
+	.button:hover 
+		background: white
+		border: 1px solid white
 
 
 	ol
@@ -154,22 +229,47 @@ h1, h2, p
 		li 
 			padding: 0.1em
 
-			a
-				text-decoration: none
-				color: black
-
 
 #center
 	width: $centerwidth
 	height: 100%
 	padding: $textblockpadding
-	+bradius($borderradius)
-	/*background-color: blue
-	border: $border
+	//+addBorder($borderradius, $color)
 	margin-left: $centermargin
 
 	h1, h2
 		margin: 0em
+
+#profiles 
+	width: 100%
+	height: 35em
+	background-color: $color
+
+	.profile
+		padding: 6%
+		width: 18%
+		text-align: center
+		position: absolute
+
+	#jwprofile
+		left: 5%
+	#ldprofile
+		left: 35%
+	#caprofile
+		left: 65%
+	h2
+		text-align: center
+		color: gray
+
+	img
+		+addBorder(10em, $color)
+		width: 10em
+		height: 10em
+		margin: 1em
+
+	p 
+		//width: 14em
+		text-align: center
 
 
 	

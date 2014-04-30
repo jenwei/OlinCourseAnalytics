@@ -19,6 +19,8 @@ def index(request):
 	#response_output = ', '.join([c.coursetitle for c in all_courses_list])
 	#return HttpResponse(template.reader(context))
 
+def mainpage(request):
+	return render(request, 'courses/mainpage.jade')
 
 def course(request, course_id):
 	course = Course.objects.get(pk=course_id)
@@ -29,14 +31,21 @@ def course(request, course_id):
 	description = "Lorem ipsum dolor sit amet, percipit voluptaria usu et. Cu postea scripserit est. Mei at consul euripidis theophrastus, ne ancillae delectus eum. Ad eros scribentur delicatissimi eos, te pro laudem iisque placerat, at fuisset commune postulant nec. Cu mea salutatus referrentur."
 	coursesearch = ['Software Design', 'Real World Measurements', 'Happiness']
 	context = {'coursetitle': coursetitle , 'courseid': courseid, 'popularity': popularity, 'requirement': requirement, 'description': description, 'coursesearch': coursesearch } 
-	return render(request, 'courses/course.jade', context)
+	return render(request, 'courses/mainpage.jade', context)
 
 def compare(request):
-	return render(request, 'courses/compare.jade')
+	context = {'compare0':request.GET['cc0'], 'compare1':request.GET['cc1']}
+	return render(request, 'courses/mainpage.jade', context)
 
 def split(request):
-	return render(request, 'courses/split.jade')
+	context={'allmajorsplit': request.GET['majorsplit'], 'allcolorsplit':request.GET['colorsplit']}
+	return render(request, 'courses/mainpage.jade', context)
 
+def team(request):
+	return render(request, 'courses/team.jade')
+
+def project(request):
+	return render(request, 'courses/project.jade')
 """
 def course(request, course_id):
 	if int(len(Course.objects.all()))>=int(course_id):

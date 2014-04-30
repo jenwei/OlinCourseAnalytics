@@ -1,13 +1,55 @@
+var tabdict = {"Course Search": "#sidebar #courseside", "Compare Courses":"#sidebar #compareside", "Data Split":"#sidebar #splitside"}
 
 jQuery(function(){
 	$(".splitform").hide();
+	$("#sidebar #courseside").hide();
+	$("#sidebar #compareside").hide();
+	$("#sidebar #splitside").hide();
+	$("#sidebar").hide();
+	//$(".center").hide();
+	//alert("yo")
+
+	$('#tabs a').click( function() {
+		if($(tabdict[this.innerHTML]).is(":visible")) {
+			$(tabdict[this.innerHTML]).hide();
+			$("#sidebar").hide();
+			/*$("#sidebar #courseside").hide();
+			$("#sidebar #compareside").hide();
+			$("#sidebar #splitside").hide();
+			$("#sidebar").show()
+			if(this.innerHTML=="Course Search") {
+				$("#sidebar #courseside").show();
+			}
+			else if (this.innerHTML=="Compare Courses") {
+				$("#sidebar #compareside").show();
+			}
+			else if (this.innerHTML=="Data Split") {
+				$("#sidebar #splitside").show();
+			}*/
+		}
+		else {
+			$("#sidebar #courseside").hide();
+			$("#sidebar #compareside").hide();
+			$("#sidebar #splitside").hide();
+			$("#sidebar").show('slow');
+			$(tabdict[this.innerHTML]).show();
+		}
+		return false; 
+	});
+
+	$('#hidesidebar a').click(function() {
+		$("#sidebar #courseside").hide();
+		$("#sidebar #compareside").hide();
+		$("#sidebar #splitside").hide();
+		$("#sidebar").hide();
+		return false;
+	});
 
   	$('input').change(function () {
 
   		if(this.type=="checkbox" && this.className=="datasplitcb") {
 			if(this.checked){
 				if(this.value=="all"){
-
 					all = $('input[type="checkbox"][name="'+this.name+'"]');
 					for(i=1; i<all.length;i++) {
 						if(all[i].checked==false) {

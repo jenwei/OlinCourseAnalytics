@@ -1,5 +1,4 @@
 
-
 function addCourseCompare() {
 	var allccs = document.getElementsByClassName("cc")
 	numccs = allccs.length
