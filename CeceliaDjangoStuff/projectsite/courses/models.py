@@ -5,18 +5,38 @@ from django.db import models
 #dataDictionaries = get_course_data(dataFileName)
 
 class Course(models.Model):
-	courseID = models.CharField(max_length=200)
-	coursemajor = models.CharField(max_length = 200)
-	coursetitle = models.CharField(max_length=200)
-
-	def __unicode__(self):
-		return self.coursetitle
-
-
-class Metric(models.Model):
-	course = models.ForeignKey(Course)
-	name=models.CharField(max_length=200)
-	value = models.CharField(max_length=200)
-
-	def __unicode__(self):
+    id = models.IntegerField(db_column='ID', primary_key=True)
+    name = models.TextField(db_column='Name')
+    class Meta:
+        managed = False
+        db_table = 'Courses'
+        
+    def __unicode__(self):
 		return self.name
+
+class Datapoint(models.Model):
+    stuid = models.IntegerField(db_column='StuID')
+    gradyear = models.TextField(db_column='GradYear')
+    stusem = models.IntegerField(db_column='StuSem')
+    stugen = models.TextField(db_column='StuGen')
+    stumaj = models.TextField(db_column='StuMaj')
+    courseid = models.IntegerField(db_column='CourseID')
+    profid = models.IntegerField(db_column='ProfID')
+    class Meta:
+        managed = False
+        db_table = 'Datapoints'
+    
+    def __unicode__(self):
+		return self.stuid, self.courseid
+
+class Student(models.Model):
+    id = models.IntegerField(db_column='ID',primary_key=True)
+    gradyear = models.IntegerField(db_column='GradYear')
+    stugen = models.TextField(db_column='StuGen')
+    stumaj = models.TextField(db_column='StuMaj')
+    class Meta:
+        managed = False
+        db_table = 'Students'
+    
+    def __unicode__(self):
+		return self.id

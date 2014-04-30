@@ -67,7 +67,7 @@ WSGI_APPLICATION = 'projectsite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': '/home/ldavis/Desktop/The Medium-Sized Folder of Stuff/Work/SoftDes/finalproject/CeceliaDjangoStuff/projectsite/oca.db',
     }
 }
 
