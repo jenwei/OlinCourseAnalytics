@@ -80,31 +80,31 @@ def moreParseData(row):
         ('FND1510', 'ENGR1110'),    # FND Mod Con
         ('FND2610', 'AHSE1500'),    # FND FBE
         ('FND2240', 'SCI1410'),     # FND Mat Sci
-        ('FND1210', 'SCI1111'),     # FND Physics side of Mod Sim (check on this, was called 'Physical Foundations ofEngineering I')
+        ('FND1210', 'SCI1111'),     # FND Physics side of Mod Sim (check on this, was called 'Physical Foundations of Engineering I')
         ('FND1311', 'MTH2140'),     # FND Diff Eq
         ('FND1410', 'ENGR1200'),    # FND precursor to Design Nature
-        ('FND1420', 'ENGR1121'),    # FND clocest thing we could get was Real World Measurements
-        ('FND2350', 'MTH2130'),     # FND clocest thing is Prob Stat (Applied Mathematical Methods)
+        ('FND1420', 'ENGR1121'),    # FND closest thing we could get was Real World Measurements
+        ('FND2350', 'MTH2130'),     # FND closest thing is Prob Stat (Applied Mathematical Methods)
         ('FND2710', 'SCI1210'),     # FND Mod Bio
         ('AHS1110', 'AHSE1100'),    # AHS -> AHSE
         ('AHS1111', 'AHSE2131'),    # AHS -> AHSE
         ('AHS1140', 'AHSE2120'),    # AHS -> AHSE
-        ('ELE1050', 'ENGR2510'),    # Software design (before it was Soft Des)
-        ('ENG1510', 'ENGR2510'),    # Software design (before it was Soft Des)
+        ('ELE1050', 'ENGR2510'),    # Software Design (before it was Soft Des)
+        ('ENG1510', 'ENGR2510'),    # Software Design (before it was Soft Des)
         ('MTH3198', 'MTH4198'),     # Consolidating the 2 OSS in Mathematics
         ('ISR1300', 'MTH0098'),     # IS in Mathematics
-        ('ISR1100', 'AHSE0198'),    # IS inArts Humanities Social Science
-        ('AHSE3198', 'AHSE0198'),   # IS inArts Humanities Social Science
-        ('AHSE1198', 'AHSE0198'),   # IS inArts Humanities Social Science
-        ('SCI3098', 'SCI0098'),     # IS in theSciences
-        ('SCI1098', 'SCI0098'),     # IS in theSciences
+        ('ISR1100', 'AHSE0198'),    # IS in Arts Humanities Social Science
+        ('AHSE3198', 'AHSE0198'),   # IS in Arts Humanities Social Science
+        ('AHSE1198', 'AHSE0198'),   # IS in Arts Humanities Social Science
+        ('SCI3098', 'SCI0098'),     # IS in the Sciences
+        ('SCI1098', 'SCI0098'),     # IS in the Sciences
         ('ENGR3098', 'ENGR0098'),   # IS in Engineering
-        ('ISR1500', 'ENGR0098'),    # IS/Research inComputing, Electrical orSystems -> IS in Engineering
-        ('ISR2900', 'ENGR0098'),    # IS & ResearchTechnical Concepts -> IS in Engineering
-        ('ISR1200', 'SCI0098'),     # IS & Research:Physical Concepts -> IS in theSciences
-        ('ISR1020', 'AHSE0198'),    # IS & ResearchMusical Concepts -> IS inArts Humanities Social Science
-        ('ISR1030', 'ENGR0098'),    # IS/Research inDesign Concepts -> IS in Engineering
-        ('ISR1900', 'ENGR0098'),    # IS & ResearchTechnical Concepts -> IS in Engineering
+        ('ISR1500', 'ENGR0098'),    # IS/Research in Computing, Electrical or Systems -> IS in Engineering
+        ('ISR2900', 'ENGR0098'),    # IS & Research Technical Concepts -> IS in Engineering
+        ('ISR1200', 'SCI0098'),     # IS & Research: Physical Concepts -> IS in the Sciences
+        ('ISR1020', 'AHSE0198'),    # IS & Research Musical Concepts -> IS in Arts Humanities Social Science
+        ('ISR1030', 'ENGR0098'),    # IS/Research in Design Concepts -> IS in Engineering
+        ('ISR1900', 'ENGR0098'),    # IS & Research Technical Concepts -> IS in Engineering
         ('SCI1410A', 'SCI1410'),    # Mat Sci
         ('ELE2715', 'SCI2320'),     # Applied Organic Chemistry -> Organic Chemistry with Lab
         ('SCI1110', 'SCI1130'),     # Mechanics
@@ -124,20 +124,20 @@ def moreParseData(row):
         ('MTH2310', 'MTH2110'),     # Discrete 
         ('ECE2910', 'ENGR2420'),    # Circuits
         ('MTH3140', 'ENGR3140'),    # Error control codes
-        ('MTH1097', 'MTH0097'),     # Undergraduate Research inMathematics
-        ('SCI1097', 'SCI0097'),     # Undergraduate Research in theSciences
-        ('ENGR1097', 'ENGR0097'),   # Undergraduate Research inEngineering
-        ('AHSE1197', 'AHSE0197'),   # Undergraduate Research inArts, Humanities, Social Science
+        ('MTH1097', 'MTH0097'),     # Undergraduate Research in Mathematics
+        ('SCI1097', 'SCI0097'),     # Undergraduate Research in the Sciences
+        ('ENGR1097', 'ENGR0097'),   # Undergraduate Research in Engineering
+        ('AHSE1197', 'AHSE0197'),   # Undergraduate Research in Arts, Humanities, Social Science
         ('MTH1000', 'MTH1110'),     # Calculus
-        ('MEC1000', 'ENGR1330'),    # Fundamentals of Machine ShopOperations
+        ('MEC1000', 'ENGR1330'),    # Fundamentals of Machine Shop Operations
         ('AHSE1120', 'AHSE1100'),   # History of Tech
-        ('AHSE3500', 'AHSE3599'),   # Entrepreneurship: Real TimeCase Study -> Special Topics in Business andEntrepreneurship
-        ('AHSE1599', 'AHSE1500'),   # Entrepreneurship FoundationTopic -> FBE
+        ('AHSE3500', 'AHSE3599'),   # Entrepreneurship: Real Time Case Study -> Special Topics in Business and Entrepreneurship
+        ('AHSE1599', 'AHSE1500'),   # Entrepreneurship Foundation Topic -> FBE
         ('AHSE1140', 'AHSE1145'),   # Anthropology Foundation
         ('AHSE2140', 'AHSE1145'),   # Anthropology Foundation
         ('ENGR3430', 'ENGR3426'),   # Digital VLSI -> Mixed Analog-Digital VLSI I
         ('AHSE1135', 'AHSE1130'),   # Seeing and Hearing
-        ('ELE1010', 'AHSE2131'),    # Responsive Drawing and VisualThinking
+        ('ELE1010', 'AHSE2131'),    # Responsive Drawing and Visual Thinking
         ('MTH2150', 'MTH2130'),     # Applied Mathematical Methods -> Prob Stat
         ('AHSE3100', 'AHSE3199'),   # Leadership and Ethics
         ('ENGR1199A', 'ENGR1199'),  # Energy Systems in Urban Design
@@ -164,7 +164,7 @@ def moreParseData(row):
 
     """ SPECIAL MANIPULATIONS """
 
-    # Digital Signal Processing used to be a Speical Topics
+    # Digital Signal Processing used to be a Special Topics
     if course_number == 'ENGR3499B' and 'Digital Signal Processing' in section_title:
         course_number = 'ENGR3415'
         course_title = 'Digital Signal Processing'
@@ -201,7 +201,7 @@ def moreParseData(row):
         else:
             course_number = 'ENGR3345B'
 
-    # Some of the 'Heroes for the RenaissanceEngineer: Leonardo, Nabokov,Bach and Borodin' classes are misnumbered
+    # Some of the 'Heroes for the Renaissance Engineer: Leonardo, Nabokov, Bach and Borodin' classes are misnumbered
     elif course_number == 'AHSE1145':
         if 'RenaissanceEngineer' in course_title:
             course_number = 'AHSE2120'
@@ -219,7 +219,7 @@ def moreParseData(row):
     elif course_number == 'ENGR1110':
         course_title = 'Modeling and Control'
 
-    # Arts, Humanities, Social ScienceFoundation Topic
+    # Arts, Humanities, Social Science Foundation Topic
     # There were multiple courses with the same number but a different course, this corrects for that
     # creating new course numbers for courses that have a different subject but the same course number
     elif course_number == 'AHSE1199':
@@ -235,7 +235,7 @@ def moreParseData(row):
         # Islam and the West: Politic/Cult
         elif 'Islam' in section_title:
             course_number = 'AHSE1199D'
-        # Media Revolution:Activism & Tech
+        # Media Revolution: Activism & Tech
         elif 'Media Revolution' in section_title:
             course_number = 'AHSE1199E'
         # Globalzatn: Culture Econ Politic
@@ -244,13 +244,13 @@ def moreParseData(row):
         # Robots, Mutants & Monsters: Envi
         elif 'Robots, Mutants' in section_title:
             course_number = 'AHSE1199G'
-        # The Play's the Thing:Shakespeare
+        # The Play's the Thing: Shakespeare
         elif 'Shakespeare' in section_title:
             course_number = 'AHSE1199H'
         # Anthropology
         elif 'Human Connection' in section_title:
             course_number = 'AHSE1145'
-        # Identity from the Mind adn Brain
+        # Identity from the Mind and Brain
         elif 'Identity' in section_title:
             course_number = 'AHSE1155'
         # Environment and Health
@@ -259,18 +259,18 @@ def moreParseData(row):
 
     title_changes = [
         ('AHSE1100', 'History of Technology:A Cultural & Contextual Approach'),
-        ('ENGR4190', 'Senior Capstone Program inEngineering (SCOPE)'),
+        ('ENGR4190', 'Senior Capstone Program in Engineering (SCOPE)'),
         ('ENGR3426', 'Mixed Analog-Digital VLSI I'),
         ('ENGR2510', 'Software Design'),
         ('SCI2320', 'Applied Organic Chemistry'),
-        ('SCI1111', 'Modeling and Simulation of thePhysical World'),
+        ('SCI1111', 'Modeling and Simulation of the Physical World'),
         ('MTH2140', 'Differential Equations'),
         ('MTH1110', 'Calculus'),
         ('AHSE0198', 'Independent Study in Arts, Humanities, Social Science'),
         ('SCI1121', 'Electricity and Magnetism'),
         ('MTH2130', 'Probability and Statistics'),
-        ('AHSE1500', 'Foundations of Business andEntrepreneurship'),
-        ('AHSE1130', 'Seeing and Hearing:Communicating with Photographs,Video and Sound'),
+        ('AHSE1500', 'Foundations of Business and Entrepreneurship'),
+        ('AHSE1130', 'Seeing and Hearing: Communicating with Photographs, Video and Sound'),
         ('ENGR2420', 'Intro Microelectronic Circuits'),
         ('AHSE1122', 'The Wired Ensemble -Instruments, Voices, Players'),
         ('SCI0098', 'Independent Study inScience'),
@@ -290,7 +290,7 @@ def moreParseData(row):
 
     # Breaking Linearity and 2006's math blocks into their respective math courses 
     # MTH2188A ['Special Topics in Mathematics', 'Linearity 1']
-    # FND1320  Mathematical Foundations ofEngineering II:  Linear Algebra and Vector Calculus
+    # FND1320  Mathematical Foundations of Engineering II:  Linear Algebra and Vector Calculus
     if course_number == 'MTH2188A' or course_number == 'FND1320':
         num_iterations = 2
         if course_number == 'MTH2188A':
@@ -301,5 +301,5 @@ def moreParseData(row):
             course_titles = ['Vector Calculus', 'Linear Algebra']
     else:
         num_iterations = 1
-    return [academic_status, grad_year,stud_id, gender, student_semester_no, major, concentration, course_number, section_no, course_title, section_title, professor_name]
+    return [academic_status, grad_year, stud_id, gender, student_semester_no, major, concentration, course_number, section_no, course_title, section_title, professor_name]
 
