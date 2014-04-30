@@ -12,3 +12,4 @@ urlpatterns = patterns('',
     url(r'^advanceSearch/$', views.doSearch, name="doSearch"),
     url(r'^team/$', views.index, name = 'team') #replace this with its own view & create template for it too
 )
+

@@ -1,6 +1,6 @@
 extends courses/display_page
-block sidebar 
-	form(method="post", action="/courses/singleCourseSearch")
+div(id="sidebar")
+	form(method="post", action="../")
 		label(for="coursesearch") Search:
 		input(type="text" name="coursesearch")
 	{% if coursesearch %}
@@ -11,7 +11,7 @@ block sidebar
 			a(href="") {{result}}
 		{% endfor %}
 	{%endif%}
-block center
+div(id="center")
 	h1 {{coursetitle}}
 	h2 {{courseid}}
 	div(id="course_info")

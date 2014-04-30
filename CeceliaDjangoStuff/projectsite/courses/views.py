@@ -19,7 +19,14 @@ def index(request):
 	#response_output = ', '.join([c.coursetitle for c in all_courses_list])
 	#return HttpResponse(template.reader(context))
 
-def course(request):
+
+def mainpage(request):
+	return render(request, 'courses/mainpage.jade')
+
+def course(request, course_id):
+	course = Course.objects.get(pk=course_id)
+
+def course_simple(request):
 #def course(request):
 	"""for the course page - need to change this so nothing is hard-coded"""
 	#specificCourse = request.POST.get()
@@ -33,13 +40,27 @@ def course(request):
 	#courseS	
 	coursesearch = ['Software Design', 'Real World Measurements', 'Happiness']
 	context = {'coursetitle': coursetitle , 'courseid': courseid, 'popularity': popularity, 'requirement': requirement, 'description': description, 'coursesearch': coursesearch } 
-	return render(request, 'courses/course.jade', context)
+	return render(request, 'courses/mainpage.jade', context)
 
 #def singleCourseSearch(request):
 #	""" for the individual course search page """
 	#searched_course = request.POST.get("NAME_OF_INPUT")
 	#
 #	return render(request,'courses/course.jade',searched_course)
+
+def compare_simple(request):
+	context = {'compare0':request.GET['cc0'], 'compare1':request.GET['cc1']}
+	return render(request, 'courses/mainpage.jade', context)
+
+def split(request):
+	context={'allmajorsplit': request.GET['majorsplit'], 'allcolorsplit':request.GET['colorsplit']}
+	return render(request, 'courses/mainpage.jade', context)
+
+def team(request):
+	return render(request, 'courses/team.jade')
+
+def project(request):
+	return render(request, 'courses/project.jade')
 
 def compare(request):
 	""" for the comparator page - need to check to see if a third course exists
