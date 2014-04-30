@@ -55,7 +55,7 @@ block sidebar
 			input(type="checkbox", name="colorsplit", class="datasplitcb", value = "E") 
 			| Entrepreneurship
 			br
-		button(id="submitsearch", class="button", name="submitsearch", value="Go!") Go!
+		button(id="submitsearch", class="button", name="submitsearch", type="submit", value="Go!") Go!
 	div(id="allsearchtags")
 		//h3 Search Tags
 		ul

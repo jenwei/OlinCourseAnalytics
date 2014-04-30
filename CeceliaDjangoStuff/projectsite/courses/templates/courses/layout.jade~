@@ -10,7 +10,7 @@ html
 		script(src='#{STATIC_URL}courses/javascript/courses.js')
 		script(src='#{STATIC_URL}courses/javascript/checkboxes.js')
 	body
-		div(id="header")
+		div(id="header",style = "font-family:cursive")
 			h1 Olin Courses
 		block content
 		div(id="footer")

@@ -1,6 +1,6 @@
 extends courses/display_page
 block sidebar 
-	form(method="post", action="/courses/singleCourseSearch")
+	form(method="get", action="/courses/singleCourseSearch")
 		label(for="coursesearch") Search:
 		input(type="text" name="coursesearch")
 	{% if coursesearch %}

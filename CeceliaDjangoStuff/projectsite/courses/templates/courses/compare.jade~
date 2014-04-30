@@ -10,5 +10,4 @@ block sidebar
 			button(class="button", type="button", onClick="addCourseCompare()",, id="addcc") +
 block center
 
-
-//why did we have input(class = "button" . . .) for the first button?
+	

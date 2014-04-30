@@ -6,6 +6,7 @@ from django.db import models
 
 class Course(models.Model):
 	courseID = models.CharField(max_length=200)
+	coursemajor = models.CharField(max_length = 200)
 	coursetitle = models.CharField(max_length=200)
 
 	def __unicode__(self):
