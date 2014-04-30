@@ -6,6 +6,5 @@ urlpatterns = patterns('',
     url(r'^$', views.index, name='index'),
     url(r'^(?P<course_id>\d+)/$', views.course, name='course'),
     url(r'^compare/$', views.compare, name='compare'),
-    url(r'^split/$', views.split, name='split'),
-    url(r'^advanceSearch/$', views.doSearch, name="doSearch")
+    url(r'^split/$', views.split, name='split')
 )

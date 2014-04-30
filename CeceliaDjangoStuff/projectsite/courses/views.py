@@ -41,6 +41,18 @@ def split(request):
 	"""for the custom search page"""
 	return render(request, 'courses/split.jade')
 
+def doSearch(request):
+	
+	majors_wanted = request.getlist.GET("majorsplit")
+	courses = []
+	for major in majors_wanted:
+		c = Course.objects().filter_by("major" = major)
+		for cc in c:
+			if c not in courses:
+				courses.append(c)
+		
+	return render(request, 'courses/split.jade', {"courses": courses})
+
 """
 BELOW IS CODE FOR the SEARCHES OF EACH PAGE
 

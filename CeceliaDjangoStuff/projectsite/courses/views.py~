@@ -41,6 +41,12 @@ def split(request):
 	"""for the custom search page"""
 	return render(request, 'courses/split.jade')
 
+def doSearch(request):
+	print "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+	print request
+	print request.GET.getlist("majorsplit")
+	return render(request, 'courses/split.jade')
+
 """
 BELOW IS CODE FOR the SEARCHES OF EACH PAGE
 
