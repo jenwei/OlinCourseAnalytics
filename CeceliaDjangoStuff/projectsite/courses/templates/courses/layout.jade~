@@ -10,18 +10,8 @@ html
 		script(src='#{STATIC_URL}courses/javascript/courses.js')
 		script(src='#{STATIC_URL}courses/javascript/checkboxes.js')
 	body
-		div(id="header")
-			div(id="title")
-				h1 
-					a(href="/courses") Olin Courses
-			div(id="navbar")
-				ul
-					li 
-						a(href="/courses/team") The Team
-					li 
-						a(href="/courses/project") The Project
-					li
-						a(href="/courses/split") Search
+		div(id="header",style = "font-family:cursive")
+			h1 Olin Courses
 		block content
 		div(id="footer")
 			ul

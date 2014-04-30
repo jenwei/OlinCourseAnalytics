@@ -44,20 +44,18 @@ class DataPoint:
     def __str__(self):
         return "["+"Grad year:"+str(self.gradYear)+"\n Student ID: "+str(students[self.stuID])+"\n Gender: "+str(self.stuGen)+"\n Class taken in Semester #: "+str(self.stuSem)+"\n Major: "+str(self.stuMaj)+"\n Course ID: "+coursesByNames[courses[self.course]].title+" ("+str(courses[self.course])+")"+"\n Professor: "+str(professors[self.prof])+"]"
 
-
-
 def createDataPoints():
-    f= open(dataFileName, 'rU')
+    f = open(dataFileName, 'rU')
     fileContents = csv.reader(f)
     allData = []
     for row in fileContents:
         attrs = moreParseData(row)
-        #order of attrs is: *means we don't care
+        #order of attrs is: (*means we don't care)
         #academic status (graduated or not) *
         #graduation year
         #student id
         #gender
-        #what number semester it is for the student (0= first semester freshman year, 8 is second semester senior year)
+        #what number semester it is for the student (0 = first semester freshman year, 7 is second semester senior year)
         #major 
         #concentration (this is not always filled) *
         #official olin course number (or equivalent, for analysis)

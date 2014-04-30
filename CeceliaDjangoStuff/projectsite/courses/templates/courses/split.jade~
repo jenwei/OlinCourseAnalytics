@@ -1,5 +1,5 @@
-
-div(id="sidebar")
+extends courses/display_page
+block sidebar 
 	h2 Advanced Search
 	div(id="dsbycontainer")
 		input(type="radio", name="dsby", value="major") 
@@ -59,6 +59,6 @@ div(id="sidebar")
 	div(id="allsearchtags")
 		//h3 Search Tags
 		ul
-div(id="center")
+
 
 
