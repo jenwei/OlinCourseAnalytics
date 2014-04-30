@@ -1,0 +1,175 @@
+$sidewidth:15em
+$sidemargin: 2em
+$centerwidth: 40em
+$centermargin: $sidewidth +$sidemargin
+$borderwidth: 0.3em
+$pagewidth: $centermargin+$centerwidth 
+$primaryfont: Calibri, sans-serif
+$color: #FFB92A
+$color1: #ED5314
+$color2: #FEEB51
+$color3: #9BCA3E
+$color4: #3ABBC9
+$color5: #E6E6E6
+$thegraycolor: #eaedf2 
+$border: $borderwidth solid $color
+$textblockpadding: 0.4em
+$borderradius: 0.2em
+
+=bradius($radius)
+	-webkit-border-radius: $radius
+	-moz-border-radius:    $radius
+	-ms-border-radius:     $radius
+	border-radius:         $radius
+
+=roundedGrayBackground()
+	border: 1px solid #eaedf2
+	+bradius(0.1em)
+	background: $thegraycolor
+	
+
+
+html, body
+	height: 75%
+	width: 100%
+	font-family: $primaryfont
+	padding: 0.5em
+	color: gray
+
+
+h1, h2, p
+	margin: 0em
+
+#header 
+	margin-bottom: 1em
+	padding: $textblockpadding
+	border: $border
+	width: $pagewidth
+	+bradius($borderradius)
+
+#footer
+	ul 
+		padding: 0em
+		list-style-type: none
+		
+		li
+			float: left
+			padding: 1em
+			margin: 2em
+			border: 0.1em solid $color
+			width: 6em
+			height: 6em
+			line-height: 6em
+			+bradius(4em)
+			background-color: $color
+			text-align: center
+			color: white
+
+			a
+				color: white
+				text-decoration: none
+
+
+#header h1
+	font-family: Courier, sans-serif
+	padding-top: 0.3em
+	padding-bottom: 0.3em
+	padding-left: 0.3em
+	margin: 0em
+
+#sidebar
+	float: left
+	width: $sidewidth
+	margin-right: $sidemargin
+	height: 25em
+	font-family: $primaryfont
+	/*background-color: red
+	border: $border
+	+bradius($borderradius)
+	display: inline
+	padding: $textblockpadding
+
+	#allsearchtags
+		position: relative
+		top: 13em
+		ul
+			//border-top: 0.1em solid $thegraycolor
+			padding: 0em
+			margin: 0em
+			li  
+				list-style-type: none
+				margin: 0em
+				margin-right: 0.2em
+				margin-top: 0.2em
+				padding: 0em
+				float: left
+				+roundedGrayBackground()
+
+	form
+		display: block
+		margin-bottom: 1em
+		padding: 1em 1em 1em 0em
+		height: 1em
+
+
+		p 
+			padding: 0.2em
+
+		input
+			margin-bottom: 0.5em
+			outline: none
+			font-size: 18px
+			font-family: inherit
+			+roundedGrayBackground()
+		button
+			border: 1px solid #eaedf2
+			+bradius(0.1em)
+			outline: none
+			font-family: inherit
+			background: $thegraycolor
+			font-size: 18px
+
+		#submitsearch 
+			position: absolute
+			top: 22em
+
+		.inputbox
+			padding: 0.5em 0.5em 0.5em 0.5em
+			width: 90%
+
+		.button
+			//padding: 0.1em
+			margin: 0.5em 0.5em 0.5em 0em
+			color: inherit
+
+		.button:hover 
+			background: white
+			border: 1px solid white
+
+
+	ol
+		padding: 0em
+		list-style-type: none
+
+		li 
+			padding: 0.1em
+
+			a
+				text-decoration: none
+				color: black
+
+
+#center
+	width: $centerwidth
+	height: 100%
+	padding: $textblockpadding
+	+bradius($borderradius)
+	/*background-color: blue
+	border: $border
+	margin-left: $centermargin
+
+	h1, h2
+		margin: 0em
+
+
+	

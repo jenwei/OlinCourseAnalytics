@@ -1,0 +1,23 @@
+{% load staticfiles %}
+doctype html
+html
+	head
+		link(rel='stylesheet', href='#{STATIC_URL}courses/stylesheets/style.css')
+		link(href="#{STATIC_URL}courses/javascript/iCheck/skins/flat/orange.css" rel="stylesheet")
+		script(src='#{STATIC_URL}courses/javascript/jQuery/jquery.js')
+		script(src="#{STATIC_URL}courses/javascript/iCheck/icheck.js")
+		//script(src='#{STATIC_URL}courses/javascript/icheckinit.js')
+		script(src='#{STATIC_URL}courses/javascript/courses.js')
+		script(src='#{STATIC_URL}courses/javascript/checkboxes.js')
+	body
+		div(id="header",style = "font-family:cursive")
+			h1 Olin Courses
+		block content
+		div(id="footer")
+			ul
+				li 
+					a(href="/courses/team") The Team
+				li 
+					a(href="http://jenwei.github.io/OlinCourseAnalytics/") The Project
+				li
+					a(href="/courses/split") Search
