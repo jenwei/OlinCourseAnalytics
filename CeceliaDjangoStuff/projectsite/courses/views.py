@@ -29,7 +29,9 @@ def courseSearch(request):
 	#searched_course = Course.objects.get(pk=c_id)
 	searched_dp = Datapoint.objects.filter(courseid = c_id)
 	#searched_student = ??
-	return render(request,'courses/course.jade',searched_dp)
+	#not sure how to get to coursesearch from main 
+	return render(request,'courses/mainpage.jade',{'course':searched_dp})
+	
 
 def course_simple(request):
 #def course(request):
@@ -69,7 +71,7 @@ def compare(request):
 	#else:
 		#return error
 	
-	return render(request, 'courses/mainpage.jade', {"courses": compare_courses})
+	return render(request, 'courses/mainpage.jade', {'compare_courses': compare_courses})
 
 def doSearch(request):
 	""" for the advanced search page """
@@ -98,7 +100,7 @@ def doSearch(request):
 				if y not in courses:
 					courses.append(y)
 	"""
-	return render(request, 'courses/split.jade', {"courses": courses})
+	return render(request, 'courses/mainpage.jade', {"courses": courses})
 
 """
 
