@@ -5,7 +5,7 @@ from courses.models import Course, Datapoint, Student
 
 #TODO metrics - m:f ratio popularity
 #METRICS ARE TESTED 
-def calcRatio(info):
+def MFRatio(info):
 	"""takes in specified information and parses it - calculating the # of males and # of females
 output: ratio of male:female"""
 	m = 0
@@ -17,7 +17,7 @@ output: ratio of male:female"""
 			f += 1
 	return {'males':m, 'females':f}
 		
-def popularity(info):
+def popularityByMajor(info):
 	""" takes in information checks the popularity under various hardcoded conditions
 output: popularity as a percentage"""
 	MEtotal = 0
@@ -73,8 +73,9 @@ def courseSearch(request):
 	searched_dp = Datapoint.objects.filter(courseid = c_id)
 	#searched_student = ??
 	#not sure how to get to coursesearch from main 
-	output = calcRatio(searched_dp)
-	return render(request,'courses/mainpage.jade',{'course':searched_dp})
+	ratio = MFRatio(searched_dp)
+	popularity = popularityByMajor(searched_dp)
+	return render(request,'courses/mainpage.jade',{'ratio':ratio, 'popularity':popularity})
 	
 def course_simple(request):
 #def course(request):
