@@ -74,7 +74,7 @@ def compare(request):
 	return render(request, 'courses/mainpage.jade', {'compare_courses': compare_courses})
 
 def doSearch(request):
-	""" for the advanced search page """
+	""" for the advanced search page - replaces the original split function """
 	majors_wanted = request.GET.getlist("majorsplit")
 	colors_wanted = request.GET.getlist("colorsplit")
 	#years_wanted = HttpRequest.getlist.GET("yearsplit")

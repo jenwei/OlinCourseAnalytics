@@ -71,7 +71,7 @@ def compare(request):
 	#else:
 		#return error
 	
-	return render(request, 'courses/mainpage.jade', {"compare_courses": compare_courses})
+	return render(request, 'courses/mainpage.jade', {'compare_courses': compare_courses})
 
 def doSearch(request):
 	""" for the advanced search page """
@@ -100,7 +100,7 @@ def doSearch(request):
 				if y not in courses:
 					courses.append(y)
 	"""
-	return render(request, 'courses/split.jade', {"courses": courses})
+	return render(request, 'courses/mainpage.jade', {"courses": courses})
 
 """
 
