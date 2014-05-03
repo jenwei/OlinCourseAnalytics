@@ -18,8 +18,10 @@ output: ratio of male:female"""
 			f += 1
 	return {'males':m, 'females':f}
 
-def courseMajorPopularity(totals,courseSpecific):
-
+def courseMajorPopularity(totals,courseTotals):
+	for key in totals:
+		popularity[key] = courseTotals[key]/totals[key]
+	return popularity
 
 def majorTotalCount():
 	MEtotal = Datapoint.objects.filter(stumaj = "ME").count()

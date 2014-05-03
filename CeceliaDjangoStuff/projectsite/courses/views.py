@@ -63,18 +63,7 @@ def index(request):
 	all_courses_list = Course.objects.all()
 
 	context = {'all_courses_list':all_courses_list, error:None}
-	return render(request, 'courses/index.jatode', context)
-	
-	#word{object_list.count|pluralize}
-	#render(request, template url, context -> a thing that maps template variable names to python objects, like the actual list with courses in it)
-	#render returns an HttpResponse, which is returned by the index view (which is, in the MVC framework, a controller)
-	#return HttpResponse(str(all_courses_list[0]))
-	#template = loader.get_template('courses/index.html')
-	#context = RequestContext(request, {
-	#	'all_courses_list':all_courses_list,
-	#	})
-	#response_output = ', '.join([c.coursetitle for c in all_courses_list])
-	#return HttpResponse(template.reader(context))
+	return render(request, 'courses/index.jade', context)
 
 def mainpage(request):
 	return render(request, 'courses/mainpage.jade')
@@ -167,6 +156,19 @@ def doSearch(request):
 """
 
 NOTES:
+
+#commented code from def index:	
+	#word{object_list.count|pluralize}
+	#render(request, template url, context -> a thing that maps template variable names to python objects, like the actual list with courses in it)
+	#render returns an HttpResponse, which is returned by the index view (which is, in the MVC framework, a controller)
+	#return HttpResponse(str(all_courses_list[0]))
+	#template = loader.get_template('courses/index.html')
+	#context = RequestContext(request, {
+	#	'all_courses_list':all_courses_list,
+	#	})
+	#response_output = ', '.join([c.coursetitle for c in all_courses_list])
+	#return HttpResponse(template.reader(context))
+
 
 #def singleCourseSearch(request):
 #	for the individual course search page 
