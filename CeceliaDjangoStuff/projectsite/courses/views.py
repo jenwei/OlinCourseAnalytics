@@ -3,10 +3,51 @@ from django.http import HttpResponse #, HttpRequest
 from django.template import RequestContext, loader
 from courses.models import Course, Datapoint, Student
 
+#TODO metrics - m:f ratio popularity
+#METRICS ARE TESTED 
+def calcRatio(info):
+	"""takes in specified information and parses it - calculating the # of males and # of females
+output: ratio of male:female"""
+	m = 0
+	f = 0
+	for item in info:
+		if item.stugen = 'M':
+			m += 1
+		if item.stugen = 'F':
+			f += 1
+	return {'males':m, 'females':f}
+		
+def popularity(info):
+	""" takes in information checks the popularity under various hardcoded conditions
+output: popularity as a percentage"""
+	MEtotal = 0
+	ECEtotal = 0
+	ECtotal = 0
+	EBtotal = 0
+	ERtotal = 0
+	EOtotal = 0
+	for item in info:
+		if item.stumaj = 'ME': 
+			MEtotal += 1
+		elif item.stumaj = 'ECE': 
+			ECEtotal += 1
+		elif item.stumaj = 'EC': 
+			ECtotal += 1
+		elif item.stumaj = 'EB': 
+			EBtotal += 1
+		elif item.stumaj = 'ER': 
+			ERtotal += 1
+		else:
+			EOtotal += 1
+	return {'ME':MEtotal,'ECE':ECEtotal,'EC':ECtotal,'EB':EBtotal,'ER':ERtotal,'EO',EOtotal}
+
+		
+		
+
 def index(request):
 	all_courses_list = Course.objects.all()
 	context = {'all_courses_list':all_courses_list}
-	return render(request, 'courses/index.jade', context)
+	return render(request, 'courses/index.jatode', context)
 	
 	#word{object_list.count|pluralize}
 	#render(request, template url, context -> a thing that maps template variable names to python objects, like the actual list with courses in it)
@@ -19,9 +60,11 @@ def index(request):
 	#response_output = ', '.join([c.coursetitle for c in all_courses_list])
 	#return HttpResponse(template.reader(context))
 
-
 def mainpage(request):
 	return render(request, 'courses/mainpage.jade')
+
+def team(request):
+	return render(request, 'courses/team.jade')
 
 def courseSearch(request):
 	""" for the individual course search page """
@@ -30,9 +73,9 @@ def courseSearch(request):
 	searched_dp = Datapoint.objects.filter(courseid = c_id)
 	#searched_student = ??
 	#not sure how to get to coursesearch from main 
+	output = calcRatio(searched_dp)
 	return render(request,'courses/mainpage.jade',{'course':searched_dp})
 	
-
 def course_simple(request):
 #def course(request):
 	""" for the dummy course search page """
@@ -107,7 +150,7 @@ def doSearch(request):
 NOTES:
 
 #def singleCourseSearch(request):
-#	""" for the individual course search page """
+#	for the individual course search page 
 	#searched_course = request.GET.get("NAME_OF_INPUT")
 	#
 #	return render(request,'courses/course.jade',searched_course)

@@ -11,5 +11,6 @@ urlpatterns = patterns('',
     #url(r'^split/$', views.split, name='split'),
     url(r'^advanceSearch/$', views.doSearch, name="doSearch"),
     url(r'^team/$', views.team, name = 'team') #replace this with its own view & create template for it too
+
 )
 
