@@ -26,21 +26,21 @@ def mainpage(request):
 def course(request, course_id):
 	course = Course.objects.get(pk=course_id)
 
-def course_simple(request):
+#def course_simple(request):
 #def course(request):
-	"""for the course page - need to change this so nothing is hard-coded"""
-	#specificCourse = request.POST.get()
-	#course = Course.objects.get(pk=course_id)
-	#course = Course.objects.filter(coursetitle = 'Software Design')
-	coursetitle = 'Software Design'
-	courseid = 'ENGR1111'
-	popularity = '100'
-	requirement = {'General': False, 'ECE': True, 'EC': True, 'ME': False, 'RE': False, 'BE': False}
-	description = "Software Design is a programming course taught in Python. Through this course, students will be taught about: supporting tools such as Linux, Git, Spyder, etc., interfacing with external software packages, software engineering skills, and beyond! "
-	#courseS	
-	coursesearch = ['Software Design', 'Real World Measurements', 'Happiness']
-	context = {'coursetitle': coursetitle , 'courseid': courseid, 'popularity': popularity, 'requirement': requirement, 'description': description, 'coursesearch': coursesearch } 
-	return render(request, 'courses/mainpage.jade', context)
+#	"""for the course page - need to change this so nothing is hard-coded"""
+#	#specificCourse = request.POST.get()
+#	#course = Course.objects.get(pk=course_id)
+#	#course = Course.objects.filter(coursetitle = 'Software Design')
+#	coursetitle = 'Software Design'
+#	courseid = 'ENGR1111'
+#	popularity = '100'
+#	requirement = {'General': False, 'ECE': True, 'EC': True, 'ME': False, 'RE': False, 'BE': False}
+#	description = "Software Design is a programming course taught in Python. Through this course, students will be taught about: supporting tools such as Linux, Git, Spyder, etc., interfacing with external software packages, software engineering skills, and beyond! "
+#	#courseS	
+#	coursesearch = ['Software Design', 'Real World Measurements', 'Happiness']
+#	context = {'coursetitle': coursetitle , 'courseid': courseid, 'popularity': popularity, 'requirement': requirement, 'description': description, 'coursesearch': coursesearch } 
+#	return render(request, 'courses/mainpage.jade', context)
 
 #def singleCourseSearch(request):
 #	""" for the individual course search page """
@@ -48,13 +48,12 @@ def course_simple(request):
 	#
 #	return render(request,'courses/course.jade',searched_course)
 
-def compare_simple(request):
-	context = {'compare0':request.GET['cc0'], 'compare1':request.GET['cc1']}
-	return render(request, 'courses/mainpage.jade', context)
+#def compare_simple(request):
+#	if request.GET['cc0'] is not None and request.GET['cc1'] is not None:
+#		context = {'compare0':request.GET['cc0'], 'compare1':request.GET['cc1']}
+#		return render(request, 'courses/mainpage.jade', context)
+#	return render(request, 'courses/mainpage.jade')
 
-def split(request):
-	context={'allmajorsplit': request.GET['majorsplit'], 'allcolorsplit':request.GET['colorsplit']}
-	return render(request, 'courses/mainpage.jade', context)
 
 def team(request):
 	return render(request, 'courses/team.jade')
@@ -62,24 +61,20 @@ def team(request):
 def project(request):
 	return render(request, 'courses/project.jade')
 
-def compare(request):
-	""" for the comparator page - need to check to see if a third course exists
-	also need to account for the actual model	
-	"""
-	compare_course_1 = request.POST.get("cc0")
-	compare_course_2 = request.POST.get("cc1")
-	compare_courses = []
-	cc1 = Course.objects.filter(coursemajor = compare_course_1) | Course.objects.filter(courseID = compare_course_1)
-	cc2 = Course.objects.filter(coursemajor = compare_course_2) | Course.objects.filter(courseID = compare_course_2)
-	compare_courses.append(cc1)
-	compare_courses.append(cc2)
-	return render(request, 'courses/compare.jade',{"courses": compare_courses})
+#def compare(request):
+#	""" for the comparator page - need to check to see if a third course exists
+#	also need to account for the actual model	
+#	"""
+#	compare_course_1 = request.POST.get("cc0")
+#	compare_course_2 = request.POST.get("cc1")
+#	compare_courses = []
+#	cc1 = Course.objects.filter(coursemajor = compare_course_1) | Course.objects.filter(courseID = compare_course_1)
+#	cc2 = Course.objects.filter(coursemajor = compare_course_2) | Course.objects.filter(courseID = compare_course_2)
+#	compare_courses.append(cc1)
+#	compare_courses.append(cc2)
+#	return render(request, 'courses/compare.jade',{"courses": compare_courses})
 
 
-
-def split(request):
-	""" CAN DELETE THIS """
-	return render(request, 'courses/split.jade')
 
 def doSearch(request):
 	""" for the advanced search page """

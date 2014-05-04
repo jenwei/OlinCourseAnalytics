@@ -1,6 +1,5 @@
 from django.contrib import admin
 from courses.models import Student, Course
-from courses.models import Metric
 # Register your models here.
 
 class StuAdmin(admin.ModelAdmin):
