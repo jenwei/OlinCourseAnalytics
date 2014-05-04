@@ -10,7 +10,7 @@ urlpatterns = patterns('',
     url(r'^compare/$', views.compare, name='compare'),
     #url(r'^split/$', views.split, name='split'),
     url(r'^advanceSearch/$', views.doSearch, name="doSearch"),
-    url(r'^team/$', views.team, name = 'team') #replace this with its own view & create template for it too
-
+    url(r'^team/$', views.team, name = 'team'), #replace this with its own view & create template for it too
+    url(r'^start/$',views.mainpage, name='mainpage')
 )
 

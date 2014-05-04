@@ -10,11 +10,11 @@ def MFRatio(info):
 output: ratio of male:female"""
 	m = 0
 	f = 0
-#males = Datapoint.objects.filter(stugen = "M").count()
+	#males = Datapoint.objects.filter(stugen = "M").count()
 	for item in info:
-		if item.stugen = 'M':
+		if item.stugen == 'M':
 			m += 1
-		if item.stugen = 'F':
+		if item.stugen == 'F':
 			f += 1
 	return {'males':m, 'females':f}
 
@@ -30,7 +30,7 @@ def majorTotalCount():
 	EBtotal = Datapoint.objects.filter(stumaj = "EB").count()
 	ERtotal = Datapoint.objects.filter(stumaj = "ER").count()
 	EOtotal = Datapoint.objects.filter(stumaj = "EO").count()
-	return {'ME':MEtotal,'ECE':ECEtotal,'EC':ECtotal,'EB':EBtotal,'ER':ERtotal,'EO',EOtotal}
+	return {'ME':MEtotal,'ECE':ECEtotal,'EC':ECtotal,'EB':EBtotal,'ER':ERtotal,'EO':EOtotal}
 
 def courseMajorCount(info):
 	""" takes in information checks the popularity under various hardcoded conditions
@@ -62,7 +62,7 @@ output: popularity as a percentage"""
 def index(request):
 	all_courses_list = Course.objects.all()
 
-	context = {'all_courses_list':all_courses_list, error:None}
+	context = {'all_courses_list':all_courses_list}#, error:None}
 	return render(request, 'courses/index.jade', context)
 
 def mainpage(request):
@@ -103,20 +103,20 @@ def course_simple(request):
 def compare(request):
 	""" for the comparator page"""
 	context = {'compare0':request.GET['cc0'], 'compare1':request.GET['cc1'], 'compare2':request.GET['cc2']}
-	cc0 = context['compare0']
-	cc1 = context['compare1']
-	cc2 = context['compare2']
-	if cc0:
+	compare_course_0 = context['compare0']
+	compare_course_1 = context['compare1']
+	compare_course_2 = context['compare2']
+	if compare_course_0:
 		cc0 = Course.objects.filter(coursemajor = compare_course_0) |Course.objects.filter(courseID = compare_course_0)
 		compare_courses.append(cc0)
 	#else:
 		#return error
-	if cc1:
+	if compare_course_1:
 		cc1 = Course.objects.filter(coursemajor = compare_course_1) | Course.objects.filter(courseID = compare_course_1)
 		compare_courses.append(cc1)
 	#else:
 		#return error 
-	if cc2:
+	if compare_course_2:
 		cc2 = Course.objects.filter(coursemajor = compare_course_2) | Course.objects.filter(courseID = compare_course_2)
 		compare_courses.append(cc2)
 	#else:
