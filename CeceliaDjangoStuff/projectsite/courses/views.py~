@@ -118,19 +118,24 @@ def compare(request):
 		compare_courses.append(cc0)
 	#else:
 		#return error
-		
+		error = 'INCOMPLETE'
 	if compare_course_1:
 		cc1 = DataPoint.objects.filter(coursemajor = compare_course_1) | DataPoint.objects.filter(courseID = compare_course_1)
 		compare_courses.append(cc1)
 	#else:
-		#return error 
+		#return error
+		if error = 'INCOMPLETE':
+			error = 'INCOMPLETE1' 
+		else:
+			error = 'INCOMPLETE'
 	if compare_course_2:
 		cc2 = DataPoint.objects.filter(coursemajor = compare_course_2) | DataPoint.objects.filter(courseID = compare_course_2)
 		compare_courses.append(cc2)
 	#else:
-		#return error
+		if error == 'INCOMPLETE1':
+			error = 'EMPTY'
 
-	return render(request, 'courses/mainpage.jade', {'compare_courses': compare_courses})
+	return render(request, 'courses/mainpage.jade', {'compare_courses': compare_courses,'error':error})
 
 def doSearch(request):
 	""" for the advanced search page - replaces the original split function """

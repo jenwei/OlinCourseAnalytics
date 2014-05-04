@@ -4,7 +4,7 @@ from django.template import RequestContext, loader
 from courses.models import Course, Datapoint, Student
 
 #METRICS ARE TESTED 
-#TODO reconfigure the metrics functions to search Courses or Students instead of dataPoint
+#TODO reconfigure the metrics functions to search Courses or Students instead of datapoint
 #TODO implement the error checks	
 #TODO add more comments & write nicer docstrings
 def MFRatio(info):
@@ -114,19 +114,22 @@ def compare(request):
 	compare_course_1 = context['compare1']
 	compare_course_2 = context['compare2']
 	if compare_course_0:
-		cc0 = DataPoint.objects.filter(coursemajor = compare_course_0) | DataPoint.objects.filter(courseID = compare_course_0)
+		cc0 = Datapoint.objects.filter(coursemajor = compare_course_0) | Datapoint.objects.filter(courseID = compare_course_0)
 		compare_courses.append(cc0)
 	#else:
 		#return error
 		error = 'INCOMPLETE'
 	if compare_course_1:
-		cc1 = DataPoint.objects.filter(coursemajor = compare_course_1) | DataPoint.objects.filter(courseID = compare_course_1)
+		cc1 = Datapoint.objects.filter(coursemajor = compare_course_1) | Datapoint.objects.filter(courseID = compare_course_1)
 		compare_courses.append(cc1)
 	#else:
 		#return error
-		error = 'INCOMPLETE1' 
+		if error = 'INCOMPLETE':
+			error = 'INCOMPLETE1' 
+		else:
+			error = 'INCOMPLETE'
 	if compare_course_2:
-		cc2 = DataPoint.objects.filter(coursemajor = compare_course_2) | DataPoint.objects.filter(courseID = compare_course_2)
+		cc2 = Datapoint.objects.filter(coursemajor = compare_course_2) | Datapoint.objects.filter(courseID = compare_course_2)
 		compare_courses.append(cc2)
 	#else:
 		if error == 'INCOMPLETE1':
@@ -149,7 +152,7 @@ def doSearch(request):
 				courses.append(mmm)
 	if len(colors_wanted) != 0:
 		for color in colors_wanted:
-			c = DataPoint.objects.filter(courseID = color)
+			c = Datapoint.objects.filter(courseID = color)
 		for cc in c:
 			if c not in courses:
 				courses.append(c)
