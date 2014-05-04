@@ -1,30 +1,75 @@
 from django.shortcuts import render
 from django.http import HttpResponse #, HttpRequest
 from django.template import RequestContext, loader
-from courses.models import Course #, Metrics
+from courses.models import Course, Datapoint, Student
+
+#METRICS ARE TESTED 
+#TODO reconfigure the metrics functions to search Courses or Students instead of dataPoint
+def MFRatio(info):
+	"""takes in specified information and parses it - calculating the # of males and # of females
+output: ratio of male:female"""
+	m = 0
+	f = 0
+#males = Datapoint.objects.filter(stugen = "M").count()
+	for item in info:
+		if item.stugen = 'M':
+			m += 1
+		if item.stugen = 'F':
+			f += 1
+	return {'males':m, 'females':f}
+
+def courseMajorPopularity(totals,courseTotals):
+	for key in totals:
+		popularity[key] = courseTotals[key]/totals[key]
+	return popularity
+
+def majorTotalCount():
+	MEtotal = Datapoint.objects.filter(stumaj = "ME").count()
+	ECEtotal = Datapoint.objects.filter(stumaj = "ECE").count()
+	ECtotal = Datapoint.objects.filter(stumaj = "EC").count()
+	EBtotal = Datapoint.objects.filter(stumaj = "EB").count()
+	ERtotal = Datapoint.objects.filter(stumaj = "ER").count()
+	EOtotal = Datapoint.objects.filter(stumaj = "EO").count()
+	return {'ME':MEtotal,'ECE':ECEtotal,'EC':ECtotal,'EB':EBtotal,'ER':ERtotal,'EO',EOtotal}
+		
+def courseMajorCount(info):
+	""" takes in information checks the popularity under various hardcoded conditions
+output: popularity as a percentage"""
+
+#not sure what is exactly stored in stumaj - #TODO change the checks below
+	ME = Datapoint.objects.filter(courseid = info).filter(stumaj = "ME").count()
+	ECE = Datapoint.objects.filter(courseid = info).filter(stumaj = "ECE").count()	
+	EC = Datapoint.objects.filter(courseid = info).filter(stumaj = "EC").count()	
+	EB = Datapoint.objects.filter(courseid = info).filter(stumaj = "EB").count()	
+	ER = Datapoint.objects.filter(courseid = info).filter(stumaj = "ER").count()	
+	EO = Datapoint.objects.filter(courseid = info).filter(stumaj = "EO").count()		
+	
+#	for item in info:
+#		if item.stumaj = 'ME': 
+#			MEtotal += 1
+#		elif item.stumaj = 'ECE': 
+#			ECEtotal += 1
+#		elif item.stumaj = 'EC': 
+#			ECtotal += 1
+#		elif item.stumaj = 'EB': 
+#			EBtotal += 1
+#		elif item.stumaj = 'ER': 
+#			ERtotal += 1
+#		else:
+#			EOtotal += 1
+#	return {'ME':MEtotal,'ECE':ECEtotal,'EC':ECtotal,'EB':EBtotal,'ER':ERtotal,'EO',EOtotal}
 
 def index(request):
 	all_courses_list = Course.objects.all()
-	context = {'all_courses_list':all_courses_list}
-	return render(request, 'courses/index.jade', context)
-	
-	#word{object_list.count|pluralize}
-	#render(request, template url, context -> a thing that maps template variable names to python objects, like the actual list with courses in it)
-	#render returns an HttpResponse, which is returned by the index view (which is, in the MVC framework, a controller)
-	#return HttpResponse(str(all_courses_list[0]))
-	#template = loader.get_template('courses/index.html')
-	#context = RequestContext(request, {
-	#	'all_courses_list':all_courses_list,
-	#	})
-	#response_output = ', '.join([c.coursetitle for c in all_courses_list])
-	#return HttpResponse(template.reader(context))
 
+	context = {'all_courses_list':all_courses_list, error:None}
+	return render(request, 'courses/index.jade', context)
 
 def mainpage(request):
 	return render(request, 'courses/mainpage.jade')
 
-def course(request, course_id):
-	course = Course.objects.get(pk=course_id)
+def team(request):
+	return render(request, 'courses/team.jade')
 
 #def course_simple(request):
 #def course(request):
@@ -75,24 +120,22 @@ def project(request):
 #	return render(request, 'courses/compare.jade',{"courses": compare_courses})
 
 
-
 def doSearch(request):
-	""" for the advanced search page """
-	
-	majors_wanted = request.POST.getlist("majorsplit[]")
-	colors_wanted = request.POST.getlist("colorsplit[]")
+	""" for the advanced search page - replaces the original split function """
+	majors_wanted = request.GET.getlist("majorsplit")
+	colors_wanted = request.GET.getlist("colorsplit")
 	#years_wanted = HttpRequest.getlist.GET("yearsplit")
 	courses = []
 	#print majors_wanted
 	if len(majors_wanted) != 0:
 		for major in majors_wanted:
-			mmm = Course.objects.filter(coursemajor = major)
+			mmm = Datapoint.objects.filter(stumaj = major)
 		for mm in mmm:
 			if mmm not in courses:
 				courses.append(mmm)
 	if len(colors_wanted) != 0:
 		for color in colors_wanted:
-			c = Course.objects.filter(courseID = color)
+			c = Course.objects.filter(id = color)
 		for cc in c:
 			if c not in courses:
 				courses.append(c)
@@ -104,10 +147,37 @@ def doSearch(request):
 				if y not in courses:
 					courses.append(y)
 	"""
-	return render(request, 'courses/split.jade', {"courses": courses})
-
+	return render(request, 'courses/mainpage.jade', {"courses": courses})
 
 """
+
+NOTES:
+
+#commented code from def index:	
+	#word{object_list.count|pluralize}
+	#render(request, template url, context -> a thing that maps template variable names to python objects, like the actual list with courses in it)
+	#render returns an HttpResponse, which is returned by the index view (which is, in the MVC framework, a controller)
+	#return HttpResponse(str(all_courses_list[0]))
+	#template = loader.get_template('courses/index.html')
+	#context = RequestContext(request, {
+	#	'all_courses_list':all_courses_list,
+	#	})
+	#response_output = ', '.join([c.coursetitle for c in all_courses_list])
+	#return HttpResponse(template.reader(context))
+
+
+#def singleCourseSearch(request):
+#	for the individual course search page 
+	#searched_course = request.GET.get("NAME_OF_INPUT")
+	#
+#	return render(request,'courses/course.jade',searched_course)
+
+
+#SPLIT IS UNDER doSEARCH
+#def split(request):
+#	context={'allmajorsplit': request.GET.getlist['majorsplit'], #'allcolorsplit':request.GET.getlist['colorsplit']}
+#	return render(request, 'courses/mainpage.jade', context)
+
 def course(request, course_id):
 	if int(len(Course.objects.all()))>=int(course_id):
 		#get the course that has the given course id
