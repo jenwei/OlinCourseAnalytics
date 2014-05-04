@@ -76,6 +76,9 @@ def mainpage(request):
 def team(request):
 	return render(request, 'courses/team.jade')
 
+def project(request):
+	return render(request, 'courses/project.jade')
+
 def courseSearch(request):
 	""" for the individual course search page """
 	c_id = request.GET[course_id]
@@ -108,32 +111,38 @@ def course_simple(request):
 #HERE IS THE REAL COMPARE FUNCTION IS!
 def compare(request):
 	error = 'NONE'
+	compare_courses = []
 	""" for the comparator page"""
-	context = {'compare0':request.GET['cc0'], 'compare1':request.GET['cc1'], 'compare2':request.GET['cc2']}
-	compare_course_0 = context['compare0']
-	compare_course_1 = context['compare1']
-	compare_course_2 = context['compare2']
-	if compare_course_0:
-		cc0 = Datapoint.objects.filter(coursemajor = compare_course_0) | Datapoint.objects.filter(courseID = compare_course_0)
+	#context = {'compare0':request.GET['cc0'], 'compare1':request.GET['cc1'], 'compare2':request.GET['cc2']}
+	#compare_course_0 = context['compare0']
+	#compare_course_1 = context['compare1']
+	#compare_course_2 = context['compare2']
+	if request.GET['cc0']:
+		compare_course_0 = request.GET['cc0']
+		cc0 = Datapoint.objects.filter(courseid = compare_course_0) | Datapoint.objects.filter(course = compare_course_0)
 		compare_courses.append(cc0)
 	#else:
 		#return error
 		error = 'INCOMPLETE'
-	if compare_course_1:
-		cc1 = Datapoint.objects.filter(coursemajor = compare_course_1) | Datapoint.objects.filter(courseID = compare_course_1)
+	if request.GET['cc1']:
+		compare_course_1 = request.GET['cc1']
+		cc1 = Datapoint.objects.filter(courseid = compare_course_1) | Datapoint.objects.filter(course = compare_course_1)
 		compare_courses.append(cc1)
 	#else:
 		#return error
-		if error = 'INCOMPLETE':
+		if error == 'INCOMPLETE':
 			error = 'INCOMPLETE1' 
 		else:
-			error = 'INCOMPLETE'
-	if compare_course_2:
-		cc2 = Datapoint.objects.filter(coursemajor = compare_course_2) | Datapoint.objects.filter(courseID = compare_course_2)
-		compare_courses.append(cc2)
-	#else:
-		if error == 'INCOMPLETE1':
+			#error = 'INCOMPLETE'
 			error = 'EMPTY'
+#TODO: MOD COURSES.JS IF 3rd (CC2) IS WANTED 
+	#if request.GET['cc2']:
+	#	compare_course_2 = request.GET['cc2']
+	#	cc2 = Datapoint.objects.filter(coursemajor = compare_course_2) | Datapoint.objects.filter(courseID = compare_course_2)
+	#	compare_courses.append(cc2)
+	#else:
+	#	if error == 'INCOMPLETE1':	
+	#		error = 'EMPTY'
 
 	return render(request, 'courses/mainpage.jade', {'compare_courses': compare_courses,'error':error})
 
