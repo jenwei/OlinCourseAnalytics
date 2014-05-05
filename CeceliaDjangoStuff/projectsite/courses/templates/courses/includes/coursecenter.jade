@@ -3,4 +3,10 @@ h2 {{courseid}}
 div(id="course_info")
 	p {{description}}
 div(id="course_res")
-	p Popularity: {{popularity}}%
+	body
+	if popularity
+		|Popularity: {{popularity}}%
+	if males
+		|Males: {{males}}
+		|Females: {{females}}
+
