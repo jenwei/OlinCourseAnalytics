@@ -5,7 +5,7 @@ div(id="course_info")
 div(id="course_res";style="text-align:center")
 	body
 	if popularity
-		|Popularity: {{popularity}}%
+		|Males {{males}}%
 	if males
 		|Males: {{males}}
 		|Females: {{females}}

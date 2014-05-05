@@ -28,44 +28,48 @@ function graph(data, twidth, theight, div) {
 	totalheight = theight;
 
 	/*var x = d3.scale.linear()
-	    .domain([0, d3.max(data)])
-	    .range([height, 0]);*/
+		.domain([0, d3.max(data)])
+		.range([height, 0]);*/
 
 	/*var chart = d3.select(".chart")
-	    .attr("width", width)
-	    .attr("height", height);*/
+		.attr("width", width)
+		.attr("height", height);*/
 
-	var margin = {top: 20, right: 35, bottom: 20, left: 10},
-	    width = totalwidth - margin.left - margin.right,
-	    height = totalheight - margin.top - margin.bottom,
-	    barUnit = height/d3.max(data, function(d) { return d.value; });
+	var margin = {top: 20, right: 10, bottom: 20, left: 35},
+		width = totalwidth - margin.left - margin.right,
+		height = totalheight - margin.top - margin.bottom,
+		barUnit = height/d3.max(data, function(d) { return d.value; });
 
 	var y = d3.scale.linear()
 		.domain([0, 100])
-	    .range([height, 0]);
+		.range([height, 0]);
 
 	var yAxis = d3.svg.axis()
-	    .scale(y)
-	    .orient("right");
+		.scale(y)
+		.orient("left").ticks(5);
 
 	var chart = d3.select(div+" .chart")
-	    .attr("width", width + margin.left + margin.right)
-	    .attr("height", height + margin.top + margin.bottom)
+		.attr("width", width + margin.left + margin.right)
+		.attr("height", height + margin.top + margin.bottom)
 	  .append("g")
-	    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 	var barWidth = width / data.length;
 
 	var bar = chart.selectAll("g")
-	    .data(data)
+		.data(data)
 	  .enter().append("g")
-	  	//.attr("transform", "translate("+margin.left+","+margin.top+")");
-	   	.attr("transform", function(d, i) { return "translate(" + i * barWidth + ",0)"; });
+		//.attr("transform", "translate("+margin.left+","+margin.top+")");
+		.attr("transform", function(d, i) { return "translate(" + i * barWidth + ",0)"; });
+
+	/*chart.append("g")
+		.attr("class", "y axis")
+		//.attr("transform", "translate(" + width + ",0)")
+		.call(yAxis);*/
 
 	chart.append("g")
-    	.attr("class", "y axis")
-      	.attr("transform", "translate(" + width + ",0)")
-      	.call(yAxis);
+		.attr("class", "y axis")
+		.call(yAxis);
 
 
 	
@@ -74,46 +78,41 @@ function graph(data, twidth, theight, div) {
 			console.log("d.value is "+d.value)
 			console.log("the y value is being set to "+y(d.value));
 			return y(d.value);})
-	    .attr("height", function(d) { 
-	    	console.log("the height value is being set to "+(height-y(d.value)));
-	    	return height-y(d.value);})
-	    .attr("width", barWidth - 1);
+		.attr("height", function(d) { 
+			console.log("the height value is being set to "+(height-y(d.value)));
+			return height-y(d.value);})
+		.attr("width", barWidth - 1);
 
 	bar.append("text")
-	    .text(function(d) { 
-	    	if (d.name=="Art of Approximation") {
-	    		console.log(height+y(d.value));
-	    		console.log(-y(d.value));
-	    		console.log(this.getComputedTextLength());
-	    	}
-	    	if (-y(d.value)/d.name.length <10 && (height+y(d.value))/d.name.length <10) {
-	    		console.log("YAY" + d.name)
-	    		if (d.name.length>=10) {
-	    			return d.name.substring(0, 9)+"..."; 
-	    		}
-	    		return d.name;
-	    	}
-	    	return d.name});
+		.text(function(d) { 
+			if (d.name=="Art of Approximation") {
+				console.log(height+y(d.value));
+				console.log(-y(d.value));
+				console.log(this.getComputedTextLength());
+			}
+			if (-y(d.value)/d.name.length <10 && (height+y(d.value))/d.name.length <10) {
+				console.log("YAY" + d.name)
+				if (d.name.length>=10) {
+					return d.name.substring(0, 9)+"..."; 
+				}
+				return d.name;
+			}
+			return d.name});
 
 	bar.select("text")
-	    .attr("x", function(d) {
-	    	return barWidth/2;
-	  	})
-	    .attr("dy", ".75em")
+		.attr("x", function(d) {
+			return barWidth/2;
+		})
+		.attr("dy", ".75em")
 		.attr("y", function(d) { 
 			if (this.getComputedTextLength() +20 >-y(d.value)) {
-	    		return y(d.value)/2; //- 2*this.getComputedTextLength()/3 -10;
-	    	}
-	    	else  {
-	    		return y(d.value)/2;
-	    	}
-	    })
+				return y(d.value)/2; //- 2*this.getComputedTextLength()/3 -10;
+			}
+			else  {
+				return y(d.value)/2;
+			}
+		})
 		.attr("writing-mode", "tb")
-
-	chart.append("g")
-    	.attr("class", "y axis")
-      	.attr("transform", "translate(" + width + ",0)")
-      	.call(yAxis);
 
 }
 
@@ -121,25 +120,25 @@ function graph(data, twidth, theight, div) {
 
 function wrap(text, width) {
   text.each(function() {
-    var text = d3.select(this),
-        words = text.text().split(/\s+/).reverse(),
-        word,
-        line = [],
-        lineNumber = 0,
-        lineHeight = 1.1, // ems
-        y = text.attr("y"),
-        dy = parseFloat(text.attr("dy")),
-        tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
-    while (word = words.pop()) {
-      line.push(word);
-      tspan.text(line.join(" "));
-      if (tspan.node().getComputedTextLength() > width) {
-        line.pop();
-        tspan.text(line.join(" "));
-        line = [word];
-        tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
-      }
-    }
+	var text = d3.select(this),
+		words = text.text().split(/\s+/).reverse(),
+		word,
+		line = [],
+		lineNumber = 0,
+		lineHeight = 1.1, // ems
+		y = text.attr("y"),
+		dy = parseFloat(text.attr("dy")),
+		tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
+	while (word = words.pop()) {
+	  line.push(word);
+	  tspan.text(line.join(" "));
+	  if (tspan.node().getComputedTextLength() > width) {
+		line.pop();
+		tspan.text(line.join(" "));
+		line = [word];
+		tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+	  }
+	}
   });
 }
 

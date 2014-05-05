@@ -67,9 +67,9 @@ WSGI_APPLICATION = 'projectsite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        #'NAME': '/Users/Cecelia/Desktop/Software_Design/OlinCourseAnalytics/CeceliaDjangoStuff/projectsite/oca.db',
+        'NAME': '/Users/Cecelia/Desktop/Software_Design/OlinCourseAnalytics/CeceliaDjangoStuff/projectsite/oca.db',
         #'NAME': '/home/ldavis/Desktop/The Medium-Sized Folder of Stuff/Work/SoftDes/finalproject/CeceliaDjangoStuff/projectsite/oca.db',\
-	   'NAME': '/home/jwei/SoftwareDesignProjects/OlinCourseAnalytics/CeceliaDjangoStuff/projectsite/oca.db'
+	   #'NAME': '/home/jwei/SoftwareDesignProjects/OlinCourseAnalytics/CeceliaDjangoStuff/projectsite/oca.db'
     }
 }
 
