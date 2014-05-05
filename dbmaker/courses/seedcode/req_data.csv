@@ -1,0 +1,50 @@
+Major,Courses,,* TO ** = choose one
+ECE,Differential Equations,MTH 2140,
+ECE,Discrete Mathematics,MTH 2110,
+ECE,Signals and Systems,ENGR 2410,
+ECE,Introduction to Microelectronic Circuits,ENGR 2420,
+ECE,Software Design,ENGR 2510,
+ECE,Computer Architecture,ENGR 3410,
+ECE,Digital Signal Processing,ENGR 3415,*
+ECE,Analog and Digital Communications,ENGR 3420,**
+ECE,Controls,ENGR3345,*
+ECE,Robotics 1,ENGR3370,*
+ECE,Semiconductor Devices,ENGR 3390,*
+ECE,Error Control Codes,ENGR 33450,**
+ME,Differential Equations,MTH2140,
+ME,Partial Differential Equations,MTH 3120,*
+ME,Numerical Methods and Scientific Computing,MTH 3150,*
+ME,Nonlinear Dynamics and Chaos,MTH 3170,**
+ME,Mechanics of Solids and Structures,ENGR 2320,
+ME,Dynamics,ENGR 2340,
+ME,Thermodynamics,ENGR 2350,
+ME,Transport Phenomena,ENGR 3310,
+ME,Mechanical Design,ENGR 3330,
+ME,Dynamics of Mechanical and Aerospace Structures,,*
+ME,Mechanical and Aerospace Systems,ENGR 3340,*
+ME,Controls,ENGR3345,*
+ME,Design for Manufacturing,ENGR 3370,*
+ME,Robotics 1,ENGR 3390,*
+ME,Robotics 2,ENGR 3392,*
+ME,Biomedical Materials,ENGR 3610,*
+ME,Systems,ENGR 3710,*
+ME,Structural Biomaterials,ENGR 3810,*
+ME,Failure  Analysis and Prevention,ENGR 3820,**
+E:C,Discrete Mathematics,MTH 2110,
+E:C,Software Design,ENGR 2510,
+E:C,Foundations of Computer Science,ENGR 3520,
+E:C,Software Systems,ENGR 3525,
+E:MS,Differential Equations,MTH 2140,
+E:ROBO,Robotics I,ENGR 3390,
+E:ROBO,Robotics II,ENGR 3392,
+E:SYS,Signals and Systems,ENGR 2410,
+E:SYS,Introduction to Microelectronic Circuits,ENGR 2420,
+E:SYS,Software Design,ENGR 2510,
+E:SYS,Computer Architecture,ENGR 3410,
+E:SYS,Analog and Digital Communications,ENGR 3420,
+E:SYS,Mechanics of Solids and Structures,ENGR 2320,
+E:SYS,Dynamics,ENGR 2340,
+E:SYS,Thermodynamics,ENGR 2350,
+E:SYS,Transport Phenomena,ENGR 3310,
+E:SYS,Mechanical Design,ENGR 3330,
+E:SYS,Systems,ENGR 3710,
