@@ -1,7 +1,7 @@
 form(method="get", action="/courses/doSearch")
 	label(for="coursesearch") Search:
 	input(type="text" name="coursesearch")
-	button(id="submitsearch")
+	button(id="submitsearch", class="button", name="submitsearch", value="Go!") Go!
 {% if coursesearch %}
 p Did you mean?
 ol
