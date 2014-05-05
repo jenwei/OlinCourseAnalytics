@@ -3,7 +3,7 @@ from django.conf.urls import patterns, url
 from courses import views
 
 urlpatterns = patterns('',
-    url(r'^$', views.index, name='index'),
+    url(r'^$', views.mainpage, name='index'),
     url(r'^advanceSearch/$', views.advanceSearch, name='advanceSearch'),
     #url(r'^(?P<course_id>\d+)/$', views.course, name='course'),
     #url(r'^findCourse/$',views.singleCourseSearch, name='singleCourseSearch'),

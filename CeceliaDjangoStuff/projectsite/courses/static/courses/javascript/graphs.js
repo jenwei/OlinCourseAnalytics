@@ -16,7 +16,9 @@
 //graph(randdata, 250, 300, "#chart2");
 //graph(randdata, 250, 270, 2);
 
-function graph(data, twidth, theight, div) {
+function graph(data, twidth, theight, divnum, title) {
+	var div = "#chart"+divnum;
+	$("#graphtitle"+divnum).html(title);
 	d3.select(div)
 		.append("svg")
 			.classed("chart", true);

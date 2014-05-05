@@ -75,6 +75,11 @@ def createDataPoints():
             allData.append(dp)
     return allData
 
-    
+data = createDataPoints();
+coursedict = {}
+for datapoint in data:
+    print courses[datapoint.course]
+    coursedict[courses[datapoint.course]]=coursesByNames[courses[datapoint.course]].title
+print coursedict
 
 

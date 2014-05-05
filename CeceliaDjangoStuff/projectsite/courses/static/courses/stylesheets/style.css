@@ -184,6 +184,8 @@ h1, h2, p {
     margin: 1em 1em 1em 0em; }
   #center p {
     padding: 0.2em 0.2em 0.2em 0em; }
+  #center .error {
+    color: red; }
   #center .center {
     padding-left: 2em; }
     #center .center .metricdisplay {
@@ -194,19 +196,22 @@ h1, h2, p {
         font-size: 18px; }
         #center .center .metricdisplay p span {
           display: inline-block; }
-  #center .chartdiv {
-    display: inline-block; }
-    #center .chartdiv .chart rect {
-      fill: #ffcd3e; }
-    #center .chartdiv .chart text {
-      fill: gray;
-      font: Calibri, sans-serif;
-      text-anchor: middle;
-      font-size: 15px; }
-    #center .chartdiv .chart .axis path, #center .chartdiv .chart .axis line {
-      fill: none;
-      stroke: black;
-      shape-rendering: crispEdges; }
+  #center .allgraph {
+    display: inline;
+    float: left; }
+    #center .allgraph .chartdiv .chart {
+      margin-right: 10em; }
+      #center .allgraph .chartdiv .chart rect {
+        fill: #ffcd3e; }
+      #center .allgraph .chartdiv .chart text {
+        fill: gray;
+        font: Calibri, sans-serif;
+        text-anchor: middle;
+        font-size: 15px; }
+      #center .allgraph .chartdiv .chart .axis path, #center .allgraph .chartdiv .chart .axis line {
+        fill: none;
+        stroke: black;
+        shape-rendering: crispEdges; }
   #center table {
     margin: 1em;
     margin-left: 0em;
@@ -217,6 +222,15 @@ h1, h2, p {
       text-align: left; }
     #center table td, #center table th {
       padding: 1em; }
+
+#project {
+  width: 100%;
+  height: 35em;
+  background-color: #ffcd3e;
+  padding: 0.4em;
+  text-align: center; }
+  #project h1 {
+    padding: 1em; }
 
 #profiles {
   width: 100%;

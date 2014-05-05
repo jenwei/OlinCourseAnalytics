@@ -1,4 +1,7 @@
-h1 Course Title 
+h1 {{coursetitle}}
+{% if error %}
+h2(class=error) There is not a course with that ID. Please try again.
+{% else %}
 h2 {{courseID}}
 div(id="course_info")
 	p {{description}}
@@ -24,6 +27,7 @@ div(id="course_res")
 			p Males: {{males}} %
 		if females
 			p Females: {{females}} %
+{% endif %}
 
 //{'courseID':searched_course,'males':ratio["males"], 'females': ratio["females"],'popularityME':pop["ME"], 'popularityECE':pop["ECE"],'popularityEConcentration':pop["EConcentration"], 'popularityUndeclared':pop["Undeclared"]}
 

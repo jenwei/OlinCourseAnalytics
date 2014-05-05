@@ -1,4 +1,4 @@
-centerpages = {"doSearch":"#coursecenter", "compare":"#comparecenter", "advanceSearch": "#splitcenter", "start": "#instructions"}
+centerpages = {"doSearch":"#coursecenter", "compare":"#comparecenter", "advanceSearch": "#splitcenter", "start": "#instructions", "":"#instructions"}
 
 jQuery(function() {
 	//console.log("the center js is running");
@@ -7,8 +7,8 @@ jQuery(function() {
 	}
 	//$("#center").hide();
 	var path=location.pathname;
-	pathparts = path.substring(1, path.length-1).split("/")
-	//alert(pathparts);
+	pathparts = path.substring(1, path.length).split("/")
+	//alert(pathparts[1]);
 	//alert(typeof pathparts[2])
 	if (typeof pathparts[1]!= undefined && typeof centerpages[pathparts[1]]!=undefined) {
 		$("#center "+centerpages[pathparts[1]]).show();		

@@ -1,8 +1,24 @@
 
-h1{% if maleratio %} {{maleratio}}  {%endif%} 
-//'maleratio':ratio['males'],'femaleratio':ratio['females'],'male1ratio':ratio1['males'],'female1ratio':ratio1['females'],'cc0stuCount': cc0stuCount, 'cc1stuCount':cc1stuCount}
-div(class="chartdiv", id="chart1")
-div(class="chartdiv", id="chart2")
+h1 Compare {{course0}} and {{course1}}
+div(id="allgraph1", class="allgraph")
+	h2(class="graphtitle", id="graphtitle1")
+	div(class="chartdiv", id="chart1")
+div(id="allgraph2", class="allgraph")
+	h2(class="graphtitle", id="graphtitle2") 
+	div(class="chartdiv", id="chart2")
+div(id="allgraph2", class="allgraph")
+	h2(class="graphtitle", id="graphtitle3gr") 
+	div(class="chartdiv", id="chart3")
 script(type="text/javascript", src='#{STATIC_URL}/courses/javascript/graphs.js')
-
+script(type="text/javascript")
+	var maledata = [ 
+		{name: "{{course0}}", value:"{{maleratio}}"},
+		{name: "{{course1}}", value:"{{male1ratio}}"},
+	];
+	var femaledata = [ 
+		{name: "{{course0}}", value:"{{femaleratio}}"},
+		{name: "{{course1}}", value:"{{female1ratio}}"},
+	]
+	graph(maledata, 300, 270, "1", "% Female Enrollment");
+	graph(femaledata, 300, 270, "2", "% Male Enrollment");
 
