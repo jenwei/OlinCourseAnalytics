@@ -8,10 +8,10 @@ Created on Wed Apr 30 15:49:46 2014
 import csv
 import sys
 import sqlite3 as lite
-from courses.seedcode.OrganizeData import *
-from courses.seedcode.Professor import *
-from courses.seedcode.parse_course_data import *
-from courses.seedcode.moreParseData import *
+from sdfinal.seedcode.OrganizeData import *
+from sdfinal.seedcode.Professor import *
+from sdfinal.seedcode.parse_course_data import *
+from sdfinal.seedcode.moreParseData import *
 
 def makedb():
     '''create the database needed for the django website'''
