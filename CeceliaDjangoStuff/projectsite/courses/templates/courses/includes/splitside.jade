@@ -2,8 +2,8 @@ h2 Advanced Search
 div(id="dsbycontainer")
 	input(type="radio", name="dsby", value="major") 
 	| Major
-	input(type="radio", name="dsby", value="color")
-	| Color
+	//input(type="radio", name="dsby", value="color")
+	//| Color
 form(id="datasplit", class="datasplitcb", action="/courses/advanceSearch/", method="get") {% csrf_token %}
 	div(id="majorsplitform", class="splitform")
 		label(for="majorsplit") Major:

@@ -4,19 +4,15 @@ div
 	table
 		thead
 			tr: th Course
-				th Popularity
+				//th Popularity
 				th Male-Female Ratio
-				th Most Often Taken By 
+				//th Most Often Taken By 
 		tbody 
-			if courses
-				{% for course in courses %}
+			if zipped_data
+				{% for i, j in zipped_data %}
 				tr
-					td {{course}}
-					td 50%
-				{%endfor%}
+					td {{ i }}
+					td {{ j }}
+				{% endfor %}
 
 
-ul 
-{% for m in allmajorsplit %}
-li {{m}}
-{% endfor %}

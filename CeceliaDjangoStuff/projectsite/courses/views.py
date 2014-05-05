@@ -32,7 +32,7 @@ output: ratio of male:female """
 	total = m+f
 	males = float(m)/total * 100
 	females = float(f)/total * 100
-	return {'males':males, 'females':females}
+	return {'males':int(males), 'females':int(females)}
 
 
 def majorDistribution():
@@ -66,7 +66,7 @@ output: popularity proportions """
 	ECEpop = float(course.student_set.filter(stumaj = "Electr'l & Computer Engr").count()) / Student.objects.filter(stumaj = "Electr'l & Computer Engr").count() * 100
 	Concentrationpop = float(course.student_set.filter(stumaj = "Engineering").count()) / Student.objects.filter(stumaj = "Engineering").count() * 100
 	Undeclaredpop = float(course.student_set.filter(stumaj = "Undeclared").count()) / Student.objects.filter(stumaj = "Undeclared").count() * 100
-	return {'ME':MEpop,'ECE':ECEpop,'EConcentration':Concentrationpop,'Undeclared':Undeclaredpop}
+	return {'ME':int(MEpop),'ECE':int(ECEpop),'EConcentration':int(Concentrationpop),'Undeclared':int(Undeclaredpop)}
 
 def courseSearch(request):
 	""" for the individual course search page """
@@ -88,41 +88,29 @@ def courseSearch(request):
 def advanceSearch(request):
 	""" for the advanced search page - replaces the original split function & references splitside.jade """
 	majors_wanted = request.GET.getlist("majorsplit")
-	colors_wanted = request.GET.getlist("colorsplit")
 	#years_wanted = HttpRequest.getlist.GET("yearsplit")
 	courses = []
 	#print majors_wanted
 	if len(majors_wanted) != 0:
 		allcourses = []
+		mfratios = []
+		#popularities = []
 		for major in majors_wanted:
 			#print "major"
 			#print major
 			if major != "all":
-				allc = Student.objects.filter(stumaj = major).courses.all()
-				for c in allco:
-					if c.name not in allcourses:
-						allcourses.append(c.name)
+				allstu= Student.objects.filter(stumaj = major)
+				for stu in allstu:
+					allc = stu.courses.all()
+					for c in allc:
+						if c.name not in allcourses:
+							allcourses.append(c.name)
+							mfratios.append(MFRatio(c))
+							#popularities.append(popularityOfCourse(c))
+	zipped_data = zip(allcourses, mfratios)
+	return render(request, 'courses/mainpage.jade', {'zipped_data': zipped_data}) #, 'popularities':popularities})
+	#return render(request, 'courses/mainpage.jade', {"courses": allcourses})
 
-	return render(request, 'courses/mainpage.jade', {'courses': allcourses})
-	'''
-		for m in specifiedMajors:
-			print m
-			if m not in courses:
-				courses.append(m)
-	print "I AM HERE"
-	if len(colors_wanted) != 0:
-		choices = Course.objects.all()
-		for course in choices:
-			for color in colors_wanted:
-				print "color"
-				print color
-				if color in course.name:
-					if course not in courses:
-						print course
-						courses.append(course)	
-	print courses
-	'''
-	return render(request, 'courses/mainpage.jade', {"courses": allcourses})
 '''
 def courseSearch(request):
 	""" for the individual course search page """

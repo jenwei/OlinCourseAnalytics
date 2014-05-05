@@ -184,8 +184,8 @@ h1, h2, p {
     margin: 1em 1em 1em 0em; }
   #center p {
     padding: 0.2em 0.2em 0.2em 0em; }
-  #center .error {
-    color: red; }
+  #center #genderratiotd, #center #popularitytd {
+    width: 30em; }
   #center .center {
     padding-left: 2em; }
     #center .center .metricdisplay {
