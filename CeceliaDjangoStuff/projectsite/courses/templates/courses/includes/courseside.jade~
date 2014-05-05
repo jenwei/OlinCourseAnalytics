@@ -1,0 +1,11 @@
+form(method="get", action="/doSearch")
+	label(for="coursesearch") Search:
+	input(type="text" name="coursesearch")
+{% if coursesearch %}
+p Did you mean?
+ol
+	{% for result in coursesearch %}
+	li 
+		a(href="") {{result}}
+	{% endfor %}
+{%endif%}

@@ -30,6 +30,8 @@ output: ratio of male:female """
 	f = course.student_set.filter(stugen = "F").count()
 	return {'males':m, 'females':f}
 
+#ANYTHING ABOVE THIS POINT SHOULD WORK/HAS BEEN CHECKED
+
 def majorDistribution():
 	""" does not take in any inputs and counts the number of students in each major
 output: # of students in each major """
@@ -42,97 +44,49 @@ output: # of students in each major """
 def coursePopularityByMajor(course):
 	""" takes in specified course and calculates # of students of each major who take it
 output: # of students mapped to their designated majors """
-	ME = course.student_set.filter(courseid = course).filter(stumaj = "Mechanical Engineering").count()
-	ECE = course.student_set.filter(courseid = course).filter(stumaj = "Electr'l & Computer Engr").count()	
-	Concentration = course.student_set.filter(courseid = course).filter(stumaj = "Engineering").count()	
-	Undeclared = course.student_set.filter(courseid = course).filter(stumaj = "Undeclared").count()	
-	return {'ME':ME,'ECE':ECE,'EConcentration':Concentration,'Undeclared':Undeclared}
+	course = Course.objects.filter(id = course)
+	MEcount = course.student_set.filter(stumaj = "Mechanical Engineering").count()
+	ECEcount = course.student_set.filter(stumaj = "Electr'l & Computer Engr").count()	
+	Concentrationcount = course.student_set.filter(stumaj = "Engineering").count()	
+	Undeclaredcount = course.student_set.filter(stumaj = "Undeclared").count()	
+	return {'ME':MEcount,'ECE':ECEcount,'EConcentration':Concentrationcount,'Undeclared':Undeclaredcount}
+
+def MFRatio(course):
+	""" takes in specified course and parses it - calculating the # of males and # of females
+output: ratio of male:female """
+	m = course.student_set.filter(stugen = "M").count()
+	f = course.student_set.filter(stugen = "F").count()
+	return {'males':m, 'females':f}
 
 def popularityOfCourse(course):
 	""" takes in course popularity by major and the overall major distribution
 output: popularity proportions """
-	MEpop = course.student_set.filter(courseid = course).filter(stumaj = "Mechanical Engineering").count() / Student.objects.filter(stumaj = "Mechanical Engineering").count()
-	ECEpop = course.student_set.filter(courseid = course).filter(stumaj = "Electr'l & Computer Engr").count() / Student.objects.filter(stumaj = "Electr'l & Computer Engr").count()
-	Concentrationpop = course.student_set.filter(courseid = course).filter(stumaj = "Engineering").count() / Student.objects.filter(stumaj = "Engineering").count()
-	Undeclaredpop = course.student_set.filter(courseid = course).filter(stumaj = "Undeclared").count() / Student.objects.filter(stumaj = "Undeclared").count()
+	#print "HERE I AM"
+	#course = course.objects.filter(id = course.id)
+	#print course
+	MEpop = float(course.student_set.filter(stumaj = "Mechanical Engineering").count()) / Student.objects.filter(stumaj = "Mechanical Engineering").count()
+	#print "ME"
+	#print MEpop
+	ECEpop = float(course.student_set.filter(stumaj = "Electr'l & Computer Engr").count()) / Student.objects.filter(stumaj = "Electr'l & Computer Engr").count()
+	Concentrationpop = float(course.student_set.filter(stumaj = "Engineering").count()) / Student.objects.filter(stumaj = "Engineering").count()
+	Undeclaredpop = float(course.student_set.filter(stumaj = "Undeclared").count()) / Student.objects.filter(stumaj = "Undeclared").count()
 	return {'ME':MEpop,'ECE':ECEpop,'EConcentration':Concentrationpop,'Undeclared':Undeclaredpop}
-
-	
-
-
-#def courseMajorPopularity(totals,courseTotals):
-#	""" takes in total counts of numbers of items per major exist overall & # of items per major exist for a certain course, calculates popularity as a proportions, #and stores it away in a dictionary
-#output: dictionary mapping popularities to respective majors for a certain class """
-#	for key in totals:
-#		popularity[key] = courseTotals[key]/totals[key]
-#	return popularity
-
-#def majorTotalCount():
-#	""" does not take in any inputs, searches datapoint for counts of items of specific majors
-#output: dictionary of number of items per major based on stumaj mapped to majors """
-#	MEtotal = Datapoint.objects.filter(stumaj = "Mechanical Engineering").count()
-#	ECEtotal = Datapoint.objects.filter(stumaj = "Electr'l & Computer Engr").count()
-#	Concentrationtotal = Datapoint.objects.filter(stumaj = "Engineering").count()
-#	Undeclaredtotal = Datapoint.objects.filter(stumaj = "Undeclared").count()
-#	return {'ME':MEtotal,'ECE':ECEtotal,'EConcentration':Concentrationtotal,'Undeclared':Undeclaredtotal}
-
-#def courseMajorCount(info):
-#	""" takes in information checks the popularity under various hardcoded conditions
-#output: popularity as a percentage """
-##not sure what is exactly stored in stumaj - #TODO change the checks below
-#	ME = Datapoint.objects.filter(courseid = info).filter(stumaj = "Mechanical Engineering").count()
-#	ECE = Datapoint.objects.filter(courseid = info).filter(stumaj = "Electr'l & Computer Engr").count()	
-#	Concentration = Datapoint.objects.filter(courseid = info).filter(stumaj = "Engineering").count()	
-#	Undeclared = Datapoint.objects.filter(courseid = info).filter(stumaj = "Undeclared").count()	
-#	return {'ME':ME,'ECE':ECE,'EConcentration':Concentration,'Undeclared':Undeclared}
-
 
 def courseSearch(request):
 	""" for the individual course search page """
-	c_name = request.GET['coursesearch']
-	searched_course = Course.objects.get(name = c_name)
-	#searched_student = ??
-	#not sure how to get to coursesearch from main 
+	#TODO swap C_ID with C_Name if/when it exists
+	c_ID = request.GET['coursesearch']
+	#print c_ID
+	searched_course = Course.objects.get(name = c_ID)
+	#print searched_course
 	ratio = MFRatio(searched_course)
-	#courseMajorPopularity = coursePopularityByMajor(searched_course)
-	#distributionOfMajors = majorDistribution()
+	print ratio
 	pop = popularityOfCourse(searched_course)
-	
-	#popME = popularityOfCourse(courseMajorPopularity[ME], distributionOfMajors[ME])
-	#popECE = popularityOfCourse(courseMajorPopularity[ECE], distributionOfMajors[ECE])
-	#popEConcentration = popularityOfCourse(courseMajorPopularity[EConcentration], distributionOfMajors[EConcentration])
-	#popUndeclared = popularityOfCourse(courseMajorPopularity[Undeclared], distributionOfMajors[Undeclared])
-	#majortotal = majorTotalCount() #returns dictionary of majors and their counts
-	#majortotals_course = courseMajorCount(c_id) #returns dictionary of majors and their counts for a specific course
-	#majorPopularity = courseMajorPopularity(majortotal,majortotals_course)
-	#generalPopularity = Datapoint.objects.filter(courseid = info).count() / Datapoint.objects.all()
-
+	print pop
 	return render(request,'courses/mainpage.jade',{'males':ratio["males"], 'females': ratio["females"],'popularityME':pop["ME"], 'popularityECE':pop["ECE"], 'popularityEConcentration':pop["EConcentration"], 'popularityUndeclared':pop["Undeclared"]})#,'majortotal':majortotal,'majorpopularity':majorPopularity,'overallpopularity':generalPopularity})
 
-"""
-def course_simple(request):
-#def course(request):
-	""" for the dummy course search page """
-	#specificCourse = request.POST.get()
-	#course = Course.objects.get(pk=course_id)
-	#course = Course.objects.filter(coursetitle = 'Software Design')
-	coursetitle = 'Software Design'
-	courseid = 'ENGR1111'
-	popularity = '100'
-	requirement = {'General': False, 'ECE': True, 'EC': True, 'ME': False, 'RE': False, 'BE': False}
-	description = "Software Design is a programming course taught in Python. Through this course, students will be taught about: supporting tools such as Linux, Git, Spyder, etc., interfacing with external software packages, software engineering skills, and beyond! "
-	#courseSearch	
-	coursesearch = ['Software Design', 'Real World Measurements', 'Happiness']
-	context = {'coursetitle': coursetitle , 'courseid': courseid, 'popularity': popularity, 'requirement': requirement, 'description': description, 'coursesearch': coursesearch } 
-	return render(request, 'courses/mainpage.jade', context)
-
-
-def compare_simple(request):
-	return render(request, 'courses/mainpage.jade')
-"""
 
 #HERE IS THE REAL COMPARE FUNCTION!
-
 def compare(request):
 	error = 'NONE'
 	compare_courses = []
@@ -170,6 +124,24 @@ def compare(request):
 
 	return render(request, 'courses/mainpage.jade', {'compare_courses': compare_courses,'error':error})
 
+"""
+def course_simple(request):
+#def course(request):
+	#the dummy course search page
+	#specificCourse = request.POST.get()
+	#course = Course.objects.get(pk=course_id)
+	#course = Course.objects.filter(coursetitle = 'Software Design')
+	coursetitle = 'Software Design'
+	courseid = 'ENGR1111'
+	popularity = '100'
+	requirement = {'General': False, 'ECE': True, 'EC': True, 'ME': False, 'RE': False, 'BE': False}
+	description = "Software Design is a programming course taught in Python. Through this course, students will be taught about: supporting tools such as Linux, Git, Spyder, etc., interfacing with external software packages, software engineering skills, and beyond! "
+	#courseSearch	
+	coursesearch = ['Software Design', 'Real World Measurements', 'Happiness']
+	context = {'coursetitle': coursetitle , 'courseid': courseid, 'popularity': popularity, 'requirement': requirement, 'description': description, 'coursesearch': coursesearch } 
+	return render(request, 'courses/mainpage.jade', context)
+"""
+
 def doSearch(request):
 	""" for the advanced search page - replaces the original split function """
 	majors_wanted = request.GET.getlist("majorsplit")
@@ -202,6 +174,31 @@ def doSearch(request):
 """
 
 NOTES:
+
+#def courseMajorPopularity(totals,courseTotals):
+	#takes in total counts of numbers of items per major exist overall &  numberof items per major exist for a certain course, calculates popularity as a proportions, and stores it away in a dictionary output: dictionary mapping popularities to respective majors for a certain class
+#	for key in totals:
+#		popularity[key] = courseTotals[key]/totals[key]
+#	return popularity
+
+#def majorTotalCount():
+	 does not take in any inputs, searches datapoint for counts of items of specific majors output: dictionary of number of items per major based on stumaj mapped to majors 
+#	MEtotal = Datapoint.objects.filter(stumaj = "Mechanical Engineering").count()
+#	ECEtotal = Datapoint.objects.filter(stumaj = "Electr'l & Computer Engr").count()
+#	Concentrationtotal = Datapoint.objects.filter(stumaj = "Engineering").count()
+#	Undeclaredtotal = Datapoint.objects.filter(stumaj = "Undeclared").count()
+#	return {'ME':MEtotal,'ECE':ECEtotal,'EConcentration':Concentrationtotal,'Undeclared':Undeclaredtotal}
+
+#def courseMajorCount(info):
+#	takes in information checks the popularity under various hardcoded conditions
+#output: popularity as a percentage
+##not sure what is exactly stored in stumaj - #TODO change the checks below
+#	ME = Datapoint.objects.filter(courseid = info).filter(stumaj = "Mechanical Engineering").count()
+#	ECE = Datapoint.objects.filter(courseid = info).filter(stumaj = "Electr'l & Computer Engr").count()	
+#	Concentration = Datapoint.objects.filter(courseid = info).filter(stumaj = "Engineering").count()	
+#	Undeclared = Datapoint.objects.filter(courseid = info).filter(stumaj = "Undeclared").count()	
+#	return {'ME':ME,'ECE':ECE,'EConcentration':Concentration,'Undeclared':Undeclared}
+
 
 #commented code from def index:	
 	#word{object_list.count|pluralize}
