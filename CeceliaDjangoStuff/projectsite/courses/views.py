@@ -77,8 +77,9 @@ def courseSearch(request):
 	ratio = MFRatio(searched_course)
 	#print ratio
 	pop = popularityOfCourse(searched_course)
-	#print pop
 	return render(request,'courses/mainpage.jade',{'courseID':searched_course,'males':ratio["males"], 'females': ratio["females"],'popularityME':pop["ME"], 'popularityECE':pop["ECE"], 'popularityEConcentration':pop["EConcentration"], 'popularityUndeclared':pop["Undeclared"]})
+
+
 
 #ANYTHING ABOVE THIS POINT SHOULD WORK/HAS BEEN CHECKED----------------------------
 	
@@ -91,17 +92,23 @@ def advanceSearch(request):
 	#print majors_wanted
 	if len(majors_wanted) != 0:
 		for major in majors_wanted:
+			#print "major"
+			#print major
 			if major == "all":
-				specifiedMajor = Course.student_set.all()
+				maj = major.student_set.all()
 			else:
-				specifiedMajor = Course.student_set.filter(stumaj = major)
+				print "in the else"
+				maj = Course.student_set.get(stumaj = major)
 		for m in specifiedMajors:
+			print m
 			if m not in courses:
 				courses.append(m)
+	print "I AM HERE"
 	if len(colors_wanted) != 0:
 		choices = Course.objects.all()
 		for course in choices:
 			for color in colors_wanted:
+				print "color"
 				print color
 				if color in course.name:
 					if course not in courses:
@@ -110,30 +117,69 @@ def advanceSearch(request):
 	print courses
 	return render(request, 'courses/mainpage.jade', {"courses": courses})
 
+def courseSearch(request):
+	""" for the individual course search page """
+	#TODO swap C_ID with C_Name if/when it exists
+	c_ID = request.GET['coursesearch']
+	#print c_ID
+	searched_course = Course.objects.get(name = c_ID)
+	#print searched_course
+	ratio = MFRatio(searched_course)
+	#print ratio
+	pop = popularityOfCourse(searched_course)
+
+def MFRatio(course):
+	""" takes in specified course and parses it - calculating the # of males and # of females
+output: ratio of male:female """
+	m = course.student_set.filter(stugen = "M").count()
+	f = course.student_set.filter(stugen = "F").count()
+	total = m+f
+	males = float(m)/total * 100
+	females = float(f)/total * 100
+	return {'males':males, 'females':females}
+
 #HERE IS THE REAL COMPARE FUNCTION!
 def compare(request):
 	error = 'NONE'
-	compare_courses = []
+	#compare_courses = []
 	""" for the comparator page"""
 
 	if request.GET['cc0']:
 		compare_course_0 = request.GET['cc0']
-		cc0 = Datapoint.objects.filter(courseid = compare_course_0) | Datapoint.objects.filter(course = compare_course_0)
-		compare_courses.append(cc0)
-	#else:
+		search0 = Course.objects.get(name = compare_course_0)
+		print compare_course_0
+		ratio = MFRatio(search0)
+		print ratio
+		#print cc0
+		#compare_courses.append(cc0)
+	else:
 		#return error
 		error = 'INCOMPLETE'
 	if request.GET['cc1']:
+		#compare_course_1 = request.GET['cc1']
+		#compare1 = Course.objects.get(name = compare_course_1)
+		#cc1 = compare1.objects.filter(name = compare_course1)
+		#compare_courses.append(cc1)
 		compare_course_1 = request.GET['cc1']
-		cc1 = Datapoint.objects.filter(courseid = compare_course_1) | Datapoint.objects.filter(course = compare_course_1)
-		compare_courses.append(cc1)
-	#else:
+		search1 = Course.objects.get(name = compare_course_1)
+		print compare_course_1
+		ratio1 = MFRatio(search1)
+		print ratio1
+	else:
 		#return error
 		if error == 'INCOMPLETE':
 			error = 'INCOMPLETE1' 
 		else:
 			#error = 'INCOMPLETE'
 			error = 'EMPTY'
+	print error	
+	if error != 'NONE':
+		return render(request, 'courses/mainpage.jade', {'compare_courses': error,'error':error})
+	else:
+		cc0stuCount = search0.student_set.all().count()
+		cc1stuCount = search1.student_set.all().count()
+		return render(request, 'courses/mainpage.jade',{'course0':compare_course_0,'course1': compare_course_1,'maleratio':ratio['male'],'femaleratio':ratio['female'],'male1ratio':ratio1['male'],'female1ratio':ratio1['female'],'cc0stuCount': cc0stuCount, 'cc1stuCount':cc1stuCount})
+
 #TODO: MOD COURSES.JS IF 3rd (CC2) IS WANTED 
 	#if request.GET['cc2']:
 	#	compare_course_2 = request.GET['cc2']
@@ -142,8 +188,6 @@ def compare(request):
 	#else:
 	#	if error == 'INCOMPLETE1':	
 	#		error = 'EMPTY'
-
-	return render(request, 'courses/mainpage.jade', {'compare_courses': compare_courses,'error':error})
 
 """
 
