@@ -1,7 +1,7 @@
 var tabdict = {"Course Search": "#sidebar #courseside", "Compare Courses":"#sidebar #compareside", "Advanced Search":"#sidebar #splitside"}
 
 jQuery(function(){
-	console.log("the sidebar js is running");
+	//console.log("the sidebar js is running");
 	$(".splitform").hide();
 	$("#sidebar #courseside").hide();
 	$("#sidebar #compareside").hide();

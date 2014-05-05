@@ -75,7 +75,6 @@ def createDataPoints():
             allData.append(dp)
     return allData
 
-
-            
+    
 
 

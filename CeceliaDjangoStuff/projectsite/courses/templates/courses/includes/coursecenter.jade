@@ -1,12 +1,29 @@
-h1 {{coursetitle}}
-h2 {{courseid}}
+h1 Course Title 
+h2 {{courseID}}
 div(id="course_info")
 	p {{description}}
 div(id="course_res")
 	body
-	if popularity
-		|Popularity: {{popularity}}%
-	if males
-		|Males: {{males}}
-		|Females: {{females}}
+	div(id="popularitymetricdisp", class="metricdisplay")
+		h3 Popularity by Major
+		if popularityME
+			p Mechanical Engineering: 
+				span  {{popularityME}}%
+		if popularityECE 
+			p Electrical and Computer Engineering:  
+				span {{popularityECE}}%
+		if popularityEConcentration
+			p Engineering:  
+				span {{popularityEConcentration}}%
+		if popularityUndeclared
+			p Undeclared:  
+			span {{popularityUndeclared}}%
+	div(id="gendermetricdisp", class="metricdisplay")
+		h3 Average Gender Balance
+		if males
+			p Males: {{males}} %
+		if females
+			p Females: {{females}} %
+
+//{'courseID':searched_course,'males':ratio["males"], 'females': ratio["females"],'popularityME':pop["ME"], 'popularityECE':pop["ECE"],'popularityEConcentration':pop["EConcentration"], 'popularityUndeclared':pop["Undeclared"]}
 

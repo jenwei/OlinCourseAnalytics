@@ -181,7 +181,19 @@ h1, h2, p {
   padding: 0.4em;
   margin-left: 5em; }
   #center h1, #center h2 {
-    margin: 0em; }
+    margin: 1em 1em 1em 0em; }
+  #center p {
+    padding: 0.2em 0.2em 0.2em 0em; }
+  #center .center {
+    padding-left: 2em; }
+    #center .center .metricdisplay {
+      margin-left: 2em;
+      display: inline;
+      float: left; }
+      #center .center .metricdisplay p {
+        font-size: 18px; }
+        #center .center .metricdisplay p span {
+          display: inline-block; }
   #center .chartdiv {
     display: inline-block; }
     #center .chartdiv .chart rect {
