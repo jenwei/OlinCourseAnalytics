@@ -91,16 +91,17 @@ def advanceSearch(request):
 	#print majors_wanted
 	if len(majors_wanted) != 0:
 		for major in majors_wanted:
-			mmm = Datapoint.objects.filter(stumaj = major)
-		for mm in mmm:
-			if mmm not in courses:
-				courses.append(mmm)
+			specifiedMajor = Course.student_set.filter(stumaj = major)
+		for m in specifiedMajors:
+			if m not in courses:
+				courses.append(m)
 	if len(colors_wanted) != 0:
-		for color in colors_wanted:
-			c = Datapoint.objects.filter(courseID = color)
-		for cc in c:
-			if c not in courses:
-				courses.append(c)
+		choices = Course.objects.all()
+		for course in choices:
+			for color in colors_wanted:
+				if color in course.name:
+					if course not in courses:
+						courses.append(course)	
 	return render(request, 'courses/mainpage.jade', {"courses": courses})
 
 #HERE IS THE REAL COMPARE FUNCTION!
