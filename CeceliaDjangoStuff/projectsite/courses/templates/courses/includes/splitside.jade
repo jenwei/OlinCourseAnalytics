@@ -4,7 +4,7 @@ div(id="dsbycontainer")
 	| Major
 	input(type="radio", name="dsby", value="color")
 	| Color
-form(id="datasplit", class="datasplitcb", action="/courses/advancedSearch/", method="post") {% csrf_token %}
+form(id="datasplit", class="datasplitcb", action="/courses/advanceSearch/", method="get") {% csrf_token %}
 	div(id="majorsplitform", class="splitform")
 		label(for="majorsplit") Major:
 		br

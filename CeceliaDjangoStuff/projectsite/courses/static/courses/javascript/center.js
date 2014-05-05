@@ -1,4 +1,4 @@
-centerpages = {"doSearch":"#coursecenter", "compare":"#comparecenter", "advancedSearch": "#splitcenter", "start": "#instructions"}
+centerpages = {"doSearch":"#coursecenter", "compare":"#comparecenter", "advanceSearch": "#splitcenter", "start": "#instructions"}
 
 jQuery(function() {
 	//console.log("the center js is running");
