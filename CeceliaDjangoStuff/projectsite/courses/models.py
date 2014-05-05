@@ -34,6 +34,7 @@ class Student(models.Model):
     gradyear = models.IntegerField(db_column='GradYear')
     stugen = models.TextField(db_column='StuGen')
     stumaj = models.TextField(db_column='StuMaj')
+    courses = models.ManyToManyField(Course)
     class Meta:
         managed = False
         db_table = 'Students'
