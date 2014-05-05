@@ -1,4 +1,4 @@
-form(method="post", action="../")
+form(method="post", action="../individualSearch/") {% csrf_token %}
 	label(for="coursesearch") Search:
 	input(type="text" name="coursesearch")
 {% if coursesearch %}

@@ -87,9 +87,10 @@ h1, h2, p {
   border-radius: 0.2em;
   display: inline;
   padding: 0.4em;
-  position: relative;
   background: #ffcd3e;
-  position: relative; }
+  position: absolute; }
+  #sidebar .sidebar {
+    position: absolute; }
   #sidebar a {
     text-decoration: none;
     color: gray; }
@@ -179,12 +180,21 @@ h1, h2, p {
       padding: 0.1em; }
 
 #center {
-  width: 50em;
+  width: 70em;
   height: 100%;
   padding: 0.4em;
   margin-left: 5em; }
   #center h1, #center h2 {
     margin: 0em; }
+  #center .chartdiv {
+    display: inline-block; }
+    #center .chartdiv .chart rect {
+      fill: #ffcd3e; }
+    #center .chartdiv .chart text {
+      fill: gray;
+      font: Calibri, sans-serif;
+      text-anchor: middle;
+      font-size: 15px; }
 
 #profiles {
   width: 100%;

@@ -3,7 +3,7 @@ $sidewidth: 15em
 $sideleftmargin: 5em
 $siderightmargin: 3em
 $sideheight: 8.75em*3
-$centerwidth: 50em
+$centerwidth: 70em
 $centermargin: 5em //$sidewidth +$sidemargin
 $pagewidth: $centermargin+$centerwidth +2*$borderwidth
 $primaryfont: Calibri, sans-serif
@@ -44,6 +44,7 @@ $borderradius: 0.2em
 =formatLinkText($textcolor)
 	text-decoration: none
 	color: $textcolor	
+
 
 
 html, body
@@ -143,10 +144,11 @@ h1, h2, p
 	+addBorder($borderradius, gray)
 	display: inline
 	padding: $textblockpadding
-	position: relative
 	background: $color
-	position: relative
+	position: absolute
 
+	.sidebar
+		position: absolute
 	a 
 		+formatLinkText(gray)
 
@@ -239,6 +241,8 @@ h1, h2, p
 
 	h1, h2
 		margin: 0em
+
+	@import graphs
 
 #profiles 
 	width: 100%
