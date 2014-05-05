@@ -28,7 +28,10 @@ def MFRatio(course):
 output: ratio of male:female """
 	m = course.student_set.filter(stugen = "M").count()
 	f = course.student_set.filter(stugen = "F").count()
-	return {'males':m, 'females':f}
+	total = m+f
+	males = float(m)/total
+	females = float(f)/total
+	return {'males':males, 'females':females}
 
 
 def majorDistribution():
@@ -49,13 +52,6 @@ output: # of students mapped to their designated majors """
 	Concentrationcount = course.student_set.filter(stumaj = "Engineering").count()	
 	Undeclaredcount = course.student_set.filter(stumaj = "Undeclared").count()	
 	return {'ME':MEcount,'ECE':ECEcount,'EConcentration':Concentrationcount,'Undeclared':Undeclaredcount}
-
-def MFRatio(course):
-	""" takes in specified course and parses it - calculating the # of males and # of females
-output: ratio of male:female """
-	m = course.student_set.filter(stugen = "M").count()
-	f = course.student_set.filter(stugen = "F").count()
-	return {'males':m, 'females':f}
 
 def popularityOfCourse(course):
 	""" takes in course popularity by major and the overall major distribution
@@ -79,9 +75,9 @@ def courseSearch(request):
 	searched_course = Course.objects.get(name = c_ID)
 	#print searched_course
 	ratio = MFRatio(searched_course)
-	print ratio
+	#print ratio
 	pop = popularityOfCourse(searched_course)
-	print pop
+	#print pop
 	return render(request,'courses/mainpage.jade',{'courseID':searched_course,'males':ratio["males"], 'females': ratio["females"],'popularityME':pop["ME"], 'popularityECE':pop["ECE"], 'popularityEConcentration':pop["EConcentration"], 'popularityUndeclared':pop["Undeclared"]})
 
 #ANYTHING ABOVE THIS POINT SHOULD WORK/HAS BEEN CHECKED----------------------------
@@ -212,7 +208,7 @@ def course_simple(request):
 
 
 #SPLIT IS UNDER doSEARCH
-#def split(request):
+#def split(request):git 
 #	context={'allmajorsplit': request.GET.getlist['majorsplit'], #'allcolorsplit':request.GET.getlist['colorsplit']}
 #	return render(request, 'courses/mainpage.jade', context)
 
