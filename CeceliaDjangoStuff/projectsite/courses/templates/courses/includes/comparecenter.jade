@@ -1,5 +1,5 @@
 
-h1 Compare {{course0}} and {{course1}}
+h1 Compare {{coursetitle0}} ( {{course_0}}) and {{coursetitle1}} ({{course_1}})
 div(id="allgraph1", class="allgraph")
 	h2(class="graphtitle", id="graphtitle1")
 	div(class="chartdiv", id="chart1")
@@ -12,12 +12,12 @@ div(id="allgraph2", class="allgraph")
 script(type="text/javascript", src='#{STATIC_URL}/courses/javascript/graphs.js')
 script(type="text/javascript")
 	var maledata = [ 
-		{name: "{{course0}}", value:"{{maleratio}}"},
-		{name: "{{course1}}", value:"{{male1ratio}}"},
+		{name: "{{course_0}}", value:"{{maleratio}}"},
+		{name: "{{course_1}}", value:"{{male1ratio}}"},
 	];
 	var femaledata = [ 
-		{name: "{{course0}}", value:"{{femaleratio}}"},
-		{name: "{{course1}}", value:"{{female1ratio}}"},
+		{name: "{{course_0}}", value:"{{femaleratio}}"},
+		{name: "{{course_1}}", value:"{{female1ratio}}"},
 	]
 	graph(maledata, 300, 270, "1", "% Female Enrollment");
 	graph(femaledata, 300, 270, "2", "% Male Enrollment");

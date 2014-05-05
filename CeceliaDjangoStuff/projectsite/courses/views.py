@@ -93,14 +93,18 @@ def advanceSearch(request):
 	courses = []
 	#print majors_wanted
 	if len(majors_wanted) != 0:
+		allcourses = []
 		for major in majors_wanted:
 			#print "major"
 			#print major
-			if major == "all":
-				maj = major.student_set.all()
-			else:
-				print "in the else"
-				maj = Course.student_set.get(stumaj = major)
+			if major != "all":
+				allc = Student.objects.filter(stumaj = major).courses.all()
+				for c in allco:
+					if c.name not in allcourses:
+						allcourses.append(c.name)
+
+	return render(request, 'courses/mainpage.jade', {'courses': allcourses})
+	'''
 		for m in specifiedMajors:
 			print m
 			if m not in courses:
@@ -117,7 +121,8 @@ def advanceSearch(request):
 						print course
 						courses.append(course)	
 	print courses
-	return render(request, 'courses/mainpage.jade', {"courses": courses})
+	'''
+	return render(request, 'courses/mainpage.jade', {"courses": allcourses})
 '''
 def courseSearch(request):
 	""" for the individual course search page """
@@ -181,7 +186,7 @@ def compare(request):
 	else:
 		cc0stuCount = search0.student_set.all().count()
 		cc1stuCount = search1.student_set.all().count()
-		return render(request, 'courses/mainpage.jade',{'course0':compare_course_0,'course1': compare_course_1,'maleratio':ratio['males'],'femaleratio':ratio['females'],'male1ratio':ratio1['males'],'female1ratio':ratio1['females'],'cc0stuCount': cc0stuCount, 'cc1stuCount':cc1stuCount})
+		return render(request, 'courses/mainpage.jade',{'course_0':compare_course_0,'course_1': compare_course_1,'coursetitle0': coursetitledict['ENGR3240'], 'coursetitle1':coursetitledict['MTH1120'], 'maleratio':ratio['males'],'femaleratio':ratio['females'],'male1ratio':ratio1['males'],'female1ratio':ratio1['females'],'cc0stuCount': cc0stuCount, 'cc1stuCount':cc1stuCount})
 
 #TODO: MOD COURSES.JS IF 3rd (CC2) IS WANTED 
 	#if request.GET['cc2']:
