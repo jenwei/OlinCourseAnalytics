@@ -29,8 +29,8 @@ output: ratio of male:female """
 	m = course.student_set.filter(stugen = "M").count()
 	f = course.student_set.filter(stugen = "F").count()
 	total = m+f
-	males = float(m)/total
-	females = float(f)/total
+	males = float(m)/total * 100
+	females = float(f)/total * 100
 	return {'males':males, 'females':females}
 
 
@@ -59,12 +59,12 @@ output: popularity proportions """
 	#print "HERE I AM"
 	#course = course.objects.filter(id = course.id)
 	#print course
-	MEpop = float(course.student_set.filter(stumaj = "Mechanical Engineering").count()) / Student.objects.filter(stumaj = "Mechanical Engineering").count()
+	MEpop = float(course.student_set.filter(stumaj = "Mechanical Engineering").count()) / Student.objects.filter(stumaj = "Mechanical Engineering").count() * 100
 	#print "ME"
 	#print MEpop
-	ECEpop = float(course.student_set.filter(stumaj = "Electr'l & Computer Engr").count()) / Student.objects.filter(stumaj = "Electr'l & Computer Engr").count()
-	Concentrationpop = float(course.student_set.filter(stumaj = "Engineering").count()) / Student.objects.filter(stumaj = "Engineering").count()
-	Undeclaredpop = float(course.student_set.filter(stumaj = "Undeclared").count()) / Student.objects.filter(stumaj = "Undeclared").count()
+	ECEpop = float(course.student_set.filter(stumaj = "Electr'l & Computer Engr").count()) / Student.objects.filter(stumaj = "Electr'l & Computer Engr").count() * 100
+	Concentrationpop = float(course.student_set.filter(stumaj = "Engineering").count()) / Student.objects.filter(stumaj = "Engineering").count() * 100
+	Undeclaredpop = float(course.student_set.filter(stumaj = "Undeclared").count()) / Student.objects.filter(stumaj = "Undeclared").count() * 100
 	return {'ME':MEpop,'ECE':ECEpop,'EConcentration':Concentrationpop,'Undeclared':Undeclaredpop}
 
 def courseSearch(request):
