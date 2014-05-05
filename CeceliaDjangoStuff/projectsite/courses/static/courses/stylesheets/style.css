@@ -144,10 +144,6 @@ h1, h2, p {
       font-family: inherit;
       background: #eaedf2;
       font-size: 18px; }
-    #sidebar form #submitsearch {
-      position: absolute;
-      top: 0.1em;
-      right: 0.3em; }
     #sidebar form .inputbox {
       padding: 0.5em 0.5em 0.5em 0.5em;
       width: 90%;
@@ -195,6 +191,20 @@ h1, h2, p {
       font: Calibri, sans-serif;
       text-anchor: middle;
       font-size: 15px; }
+    #center .chartdiv .chart .axis path, #center .chartdiv .chart .axis line {
+      fill: none;
+      stroke: black;
+      shape-rendering: crispEdges; }
+  #center table {
+    margin: 1em;
+    margin-left: 0em;
+    border-collapse: collapse; }
+    #center table thead tr {
+      border-bottom: 2px solid #ffcd3e; }
+    #center table th {
+      text-align: left; }
+    #center table td, #center table th {
+      padding: 1em; }
 
 #profiles {
   width: 100%;

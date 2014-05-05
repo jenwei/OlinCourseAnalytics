@@ -12,11 +12,12 @@ var randdata = [
 	.enter().append("div")
 		.style("height", function(d) { return d * 10 + "px"; })
 			.text(function(d) { return d; });*/
-graph(randdata, 250, 270, "#chart1");
-graph(randdata, 250, 270, "#chart2");
+graph(randdata, 300, 270, "#chart1");
+graph(randdata, 250, 300, "#chart2");
 //graph(randdata, 250, 270, 2);
 
 function graph(data, twidth, theight, div) {
+
 	d3.select(div)
 		.append("svg")
 			.classed("chart", true);
@@ -34,13 +35,18 @@ function graph(data, twidth, theight, div) {
 	    .attr("width", width)
 	    .attr("height", height);*/
 
-	var margin = {top: 10, right: 10, bottom: 10, left: 10},
+	var margin = {top: 20, right: 35, bottom: 20, left: 10},
 	    width = totalwidth - margin.left - margin.right,
 	    height = totalheight - margin.top - margin.bottom,
 	    barUnit = height/d3.max(data, function(d) { return d.value; });
 
 	var y = d3.scale.linear()
-	    .range([barUnit, 0]);
+		.domain([0, 100])
+	    .range([height, 0]);
+
+	var yAxis = d3.svg.axis()
+	    .scale(y)
+	    .orient("right");
 
 	var chart = d3.select(div+" .chart")
 	    .attr("width", width + margin.left + margin.right)
@@ -53,11 +59,24 @@ function graph(data, twidth, theight, div) {
 	var bar = chart.selectAll("g")
 	    .data(data)
 	  .enter().append("g")
-	    .attr("transform", function(d, i) { return "translate(" + i * barWidth + ",0)"; });
+	  	//.attr("transform", "translate("+margin.left+","+margin.top+")");
+	   	.attr("transform", function(d, i) { return "translate(" + i * barWidth + ",0)"; });
 
+	chart.append("g")
+    	.attr("class", "y axis")
+      	.attr("transform", "translate(" + width + ",0)")
+      	.call(yAxis);
+
+
+	
 	bar.append("rect")
-		.attr("y", function(d) {return height + y(d.value);})
-	    .attr("height", function(d) { return -y(d.value);})
+		.attr("y", function(d) {
+			console.log("d.value is "+d.value)
+			console.log("the y value is being set to "+y(d.value));
+			return y(d.value);})
+	    .attr("height", function(d) { 
+	    	console.log("the height value is being set to "+(height-y(d.value)));
+	    	return height-y(d.value);})
 	    .attr("width", barWidth - 1);
 
 	bar.append("text")
@@ -83,14 +102,19 @@ function graph(data, twidth, theight, div) {
 	    .attr("dy", ".75em")
 		.attr("y", function(d) { 
 			if (this.getComputedTextLength() +20 >-y(d.value)) {
-				console.log(d.name);
-	    		return height + y(d.value) - 2*this.getComputedTextLength()/3 -10;
+	    		return y(d.value)/2; //- 2*this.getComputedTextLength()/3 -10;
 	    	}
 	    	else  {
-	    		return height + y(d.value)/2;
+	    		return y(d.value)/2;
 	    	}
 	    })
 		.attr("writing-mode", "tb")
+
+	chart.append("g")
+    	.attr("class", "y axis")
+      	.attr("transform", "translate(" + width + ",0)")
+      	.call(yAxis);
+
 }
 
 

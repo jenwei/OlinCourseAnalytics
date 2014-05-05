@@ -1,4 +1,4 @@
-var tabdict = {"Course Search": "#sidebar #courseside", "Compare Courses":"#sidebar #compareside", "Data Split":"#sidebar #splitside"}
+var tabdict = {"Course Search": "#sidebar #courseside", "Compare Courses":"#sidebar #compareside", "Advanced Search":"#sidebar #splitside"}
 
 jQuery(function(){
 	console.log("the sidebar js is running");

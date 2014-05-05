@@ -4,10 +4,12 @@ from django.template import RequestContext, loader
 from courses.models import Course, Datapoint, Student
 
 #METRICS ARE TESTED 
-#TODO reconfigure the metrics functions to search Courses or Students instead of dataPoint
+#TODO reconfigure the metrics functions to search Courses or Students instead of datapoint
+#TODO implement the error checks	
+#TODO add more comments & write nicer docstrings
 def MFRatio(info):
-	"""takes in specified information and parses it - calculating the # of males and # of females
-output: ratio of male:female"""
+	""" takes in specified information and parses it - calculating the # of males and # of females
+output: ratio of male:female """
 	m = 0
 	f = 0
 	#males = Datapoint.objects.filter(stugen = "M").count()
@@ -19,11 +21,15 @@ output: ratio of male:female"""
 	return {'males':m, 'females':f}
 
 def courseMajorPopularity(totals,courseTotals):
+	""" takes in total counts of # of items per major exist overall & # of items per major exist for a certain course, calculates popularity as a proportions, and stores it away in a dictionary
+output: dictionary mapping popularities to respective majors for a certain class """
 	for key in totals:
 		popularity[key] = courseTotals[key]/totals[key]
 	return popularity
 
 def majorTotalCount():
+	""" does not take in any inputs, searches datapoint for counts of items of specific majors
+output: dictionary of # of items per major based on stumaj mapped to majors """
 	MEtotal = Datapoint.objects.filter(stumaj = "ME").count()
 	ECEtotal = Datapoint.objects.filter(stumaj = "ECE").count()
 	ECtotal = Datapoint.objects.filter(stumaj = "EC").count()
@@ -34,26 +40,25 @@ def majorTotalCount():
 
 def courseMajorCount(info):
 	""" takes in information checks the popularity under various hardcoded conditions
-output: popularity as a percentage"""
-
+output: popularity as a percentage """
 #not sure what is exactly stored in stumaj - #TODO change the checks below
 	ME = Datapoint.objects.filter(courseid = info).filter(stumaj = "ME").count()
 	ECE = Datapoint.objects.filter(courseid = info).filter(stumaj = "ECE").count()	
 	EC = Datapoint.objects.filter(courseid = info).filter(stumaj = "EC").count()	
 	EB = Datapoint.objects.filter(courseid = info).filter(stumaj = "EB").count()	
 	ER = Datapoint.objects.filter(courseid = info).filter(stumaj = "ER").count()	
-	EO = Datapoint.objects.filter(courseid = info).filter(stumaj = "EO").count()		
+	EO = Datapoint.objects.filter(courseid = info).exclude(stumaj = "ME").exclude(stumaj = "ECE").exclude(stumaj = "EC").exclude(stumaj = "EB").exclude(stumaj = "ER").count()	#since EO (probably) does not exist as a stumaj, filter out all other specified majors and count what is leftover
 
 #	for item in info:
-#		if item.stumaj = 'ME': 
+#		if item.stumaj == 'ME': 
 #			MEtotal += 1
-#		elif item.stumaj = 'ECE': 
+#		elif item.stumaj == 'ECE': 
 #			ECEtotal += 1
-#		elif item.stumaj = 'EC': 
+#		elif item.stumaj == 'EC': 
 #			ECtotal += 1
-#		elif item.stumaj = 'EB': 
+#		elif item.stumaj == 'EB': 
 #			EBtotal += 1
-#		elif item.stumaj = 'ER': 
+#		elif item.stumaj == 'ER': 
 #			ERtotal += 1
 #		else:
 #			EOtotal += 1
@@ -70,6 +75,9 @@ def mainpage(request):
 
 def team(request):
 	return render(request, 'courses/team.jade')
+
+def project(request):
+	return render(request, 'courses/project.jade')
 
 def courseSearch(request):
 	""" for the individual course search page """
@@ -100,29 +108,48 @@ def course_simple(request):
 	context = {'coursetitle': coursetitle , 'courseid': courseid, 'popularity': popularity, 'requirement': requirement, 'description': description, 'coursesearch': coursesearch } 
 	return render(request, 'courses/mainpage.jade', context)
 
+
+def compare_simple(request):
+	return render(request, 'courses/mainpage.jade')
+
+#HERE IS THE REAL COMPARE FUNCTION IS!
+
 def compare(request):
+	error = 'NONE'
+	compare_courses = []
 	""" for the comparator page"""
-	context = {'compare0':request.GET['cc0'], 'compare1':request.GET['cc1'], 'compare2':request.GET['cc2']}
-	compare_course_0 = context['compare0']
-	compare_course_1 = context['compare1']
-	compare_course_2 = context['compare2']
-	if compare_course_0:
-		cc0 = Course.objects.filter(coursemajor = compare_course_0) |Course.objects.filter(courseID = compare_course_0)
+	#context = {'compare0':request.GET['cc0'], 'compare1':request.GET['cc1'], 'compare2':request.GET['cc2']}
+	#compare_course_0 = context['compare0']
+	#compare_course_1 = context['compare1']
+	#compare_course_2 = context['compare2']
+	if request.GET['cc0']:
+		compare_course_0 = request.GET['cc0']
+		cc0 = Datapoint.objects.filter(courseid = compare_course_0) | Datapoint.objects.filter(course = compare_course_0)
 		compare_courses.append(cc0)
 	#else:
 		#return error
-	if compare_course_1:
-		cc1 = Course.objects.filter(coursemajor = compare_course_1) | Course.objects.filter(courseID = compare_course_1)
+		error = 'INCOMPLETE'
+	if request.GET['cc1']:
+		compare_course_1 = request.GET['cc1']
+		cc1 = Datapoint.objects.filter(courseid = compare_course_1) | Datapoint.objects.filter(course = compare_course_1)
 		compare_courses.append(cc1)
 	#else:
-		#return error 
-	if compare_course_2:
-		cc2 = Course.objects.filter(coursemajor = compare_course_2) | Course.objects.filter(courseID = compare_course_2)
-		compare_courses.append(cc2)
-	#else:
 		#return error
+		if error == 'INCOMPLETE':
+			error = 'INCOMPLETE1' 
+		else:
+			#error = 'INCOMPLETE'
+			error = 'EMPTY'
+#TODO: MOD COURSES.JS IF 3rd (CC2) IS WANTED 
+	#if request.GET['cc2']:
+	#	compare_course_2 = request.GET['cc2']
+	#	cc2 = Datapoint.objects.filter(coursemajor = compare_course_2) | Datapoint.objects.filter(courseID = compare_course_2)
+	#	compare_courses.append(cc2)
+	#else:
+	#	if error == 'INCOMPLETE1':	
+	#		error = 'EMPTY'
 
-	return render(request, 'courses/mainpage.jade', {'compare_courses': compare_courses})
+	return render(request, 'courses/mainpage.jade', {'compare_courses': compare_courses,'error':error})
 
 def doSearch(request):
 	""" for the advanced search page - replaces the original split function """
@@ -139,7 +166,7 @@ def doSearch(request):
 				courses.append(mmm)
 	if len(colors_wanted) != 0:
 		for color in colors_wanted:
-			c = Course.objects.filter(id = color)
+			c = Datapoint.objects.filter(courseID = color)
 		for cc in c:
 			if c not in courses:
 				courses.append(c)
