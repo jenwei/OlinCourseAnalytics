@@ -7,17 +7,19 @@ block content
 		li 
 			a(href="") Compare Courses
 		li 
-			a(href="") Data Split
+			a(href="") Advanced Search
 	div(id="sidebar")
-		div(id="courseside")
+		div(id="courseside", class="sidebar")
 			include courses/includes/courseside
-		div(id="compareside")
+		div(id="compareside", class="sidebar")
 			include courses/includes/compareside
-		div(id="splitside")
+		div(id="splitside", class="sidebar")
 			include courses/includes/splitside
 		div(id="hidesidebar")
 			a(href="") Hide
 	div(id="center")
+		div(id="instructions", class="center")
+			include courses/includes/instructions
 		div(id="coursecenter", class="center")
 			include courses/includes/coursecenter
 		div(id="comparecenter", class="center")

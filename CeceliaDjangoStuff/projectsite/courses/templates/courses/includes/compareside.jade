@@ -1,5 +1,5 @@
 h2 Compare...
-form(method="get", action="/courses/compare", class="form_class")
+form(method="get", action="/courses/compare/", class="form_class") {% csrf_token %}
 	div(id="cc_inputs")
 		input(class="inputbox cc",type="text", name="cc0", placeholder="course title")
 		input(class="inputbox cc",type="text", name="cc1", placeholder="course title")  

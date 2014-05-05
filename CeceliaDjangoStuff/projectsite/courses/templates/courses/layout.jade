@@ -1,5 +1,7 @@
 {% load staticfiles %}
+{% csrf_token %}
 doctype html
+meta(charset="utf-8")
 html
 	head
 		link(rel='stylesheet', href='#{STATIC_URL}courses/stylesheets/style.css')
@@ -7,8 +9,10 @@ html
 		script(src='#{STATIC_URL}courses/javascript/jQuery/jquery.js')
 		script(src="#{STATIC_URL}courses/javascript/iCheck/icheck.js")
 		//script(src='#{STATIC_URL}courses/javascript/icheckinit.js')
-		script(src='#{STATIC_URL}courses/javascript/courses.js')
-		script(src='#{STATIC_URL}courses/javascript/checkboxes.js')
+		//script(src='#{STATIC_URL}courses/javascript/courses.js')
+		script(src='#{STATIC_URL}courses/javascript/center.js')
+		script(src='#{STATIC_URL}courses/javascript/sidebars.js')
+		script(src='//cdnjs.cloudflare.com/ajax/libs/d3/3.4.6/d3.min.js')
 	body
 		div(id="header")
 			div(id="title")
@@ -21,13 +25,5 @@ html
 					li 
 						a(href="/courses/project") The Project
 					li
-						a(href="/courses/split") Search
+						a(href="/courses/start") Search
 		block content
-		div(id="footer")
-			ul
-				li 
-					a(href="/courses/team") The Team
-				li 
-					a(href="http://jenwei.github.io/OlinCourseAnalytics/") The Project
-				li
-					a(href="/courses/split") Search

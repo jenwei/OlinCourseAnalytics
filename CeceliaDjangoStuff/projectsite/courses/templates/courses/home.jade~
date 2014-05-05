@@ -1,0 +1,4 @@
+extends courses/layout
+
+block content
+	h2 To view the project page, click a(href='http://jenwei.github.io/OlinCourseAnalytics/') here
