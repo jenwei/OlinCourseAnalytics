@@ -30,7 +30,6 @@ output: ratio of male:female """
 	f = course.student_set.filter(stugen = "F").count()
 	return {'males':m, 'females':f}
 
-#ANYTHING ABOVE THIS POINT SHOULD WORK/HAS BEEN CHECKED
 
 def majorDistribution():
 	""" does not take in any inputs and counts the number of students in each major
@@ -83,8 +82,30 @@ def courseSearch(request):
 	print ratio
 	pop = popularityOfCourse(searched_course)
 	print pop
-	return render(request,'courses/mainpage.jade',{'males':ratio["males"], 'females': ratio["females"],'popularityME':pop["ME"], 'popularityECE':pop["ECE"], 'popularityEConcentration':pop["EConcentration"], 'popularityUndeclared':pop["Undeclared"]})#,'majortotal':majortotal,'majorpopularity':majorPopularity,'overallpopularity':generalPopularity})
+	return render(request,'courses/mainpage.jade',{'courseID':searched_course,'males':ratio["males"], 'females': ratio["females"],'popularityME':pop["ME"], 'popularityECE':pop["ECE"], 'popularityEConcentration':pop["EConcentration"], 'popularityUndeclared':pop["Undeclared"]})
 
+#ANYTHING ABOVE THIS POINT SHOULD WORK/HAS BEEN CHECKED----------------------------
+
+def advanceSearch(request):
+	""" for the advanced search page - replaces the original split function & references splitside.jade """
+	majors_wanted = request.GET.getlist("majorsplit")
+	colors_wanted = request.GET.getlist("colorsplit")
+	#years_wanted = HttpRequest.getlist.GET("yearsplit")
+	courses = []
+	#print majors_wanted
+	if len(majors_wanted) != 0:
+		for major in majors_wanted:
+			mmm = Datapoint.objects.filter(stumaj = major)
+		for mm in mmm:
+			if mmm not in courses:
+				courses.append(mmm)
+	if len(colors_wanted) != 0:
+		for color in colors_wanted:
+			c = Datapoint.objects.filter(courseID = color)
+		for cc in c:
+			if c not in courses:
+				courses.append(c)
+	return render(request, 'courses/mainpage.jade', {"courses": courses})
 
 #HERE IS THE REAL COMPARE FUNCTION!
 def compare(request):
@@ -125,6 +146,10 @@ def compare(request):
 	return render(request, 'courses/mainpage.jade', {'compare_courses': compare_courses,'error':error})
 
 """
+
+NOTES:
+
+
 def course_simple(request):
 #def course(request):
 	#the dummy course search page
@@ -140,40 +165,6 @@ def course_simple(request):
 	coursesearch = ['Software Design', 'Real World Measurements', 'Happiness']
 	context = {'coursetitle': coursetitle , 'courseid': courseid, 'popularity': popularity, 'requirement': requirement, 'description': description, 'coursesearch': coursesearch } 
 	return render(request, 'courses/mainpage.jade', context)
-"""
-
-def doSearch(request):
-	""" for the advanced search page - replaces the original split function """
-	majors_wanted = request.GET.getlist("majorsplit")
-	colors_wanted = request.GET.getlist("colorsplit")
-	#years_wanted = HttpRequest.getlist.GET("yearsplit")
-	courses = []
-	#print majors_wanted
-	if len(majors_wanted) != 0:
-		for major in majors_wanted:
-			mmm = Datapoint.objects.filter(stumaj = major)
-		for mm in mmm:
-			if mmm not in courses:
-				courses.append(mmm)
-	if len(colors_wanted) != 0:
-		for color in colors_wanted:
-			c = Datapoint.objects.filter(courseID = color)
-		for cc in c:
-			if c not in courses:
-				courses.append(c)
-	"""
-	if len(years_wanted) != 0:
-		for year in years_wanted:
-			c = Course.objects.filter("year" = year)
-			for yy in y:
-				if y not in courses:
-					courses.append(y)
-	"""
-	return render(request, 'courses/mainpage.jade', {"courses": courses})
-
-"""
-
-NOTES:
 
 #def courseMajorPopularity(totals,courseTotals):
 	#takes in total counts of numbers of items per major exist overall &  numberof items per major exist for a certain course, calculates popularity as a proportions, and stores it away in a dictionary output: dictionary mapping popularities to respective majors for a certain class
