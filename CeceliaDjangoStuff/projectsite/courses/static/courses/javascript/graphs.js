@@ -1,23 +1,22 @@
-var randdata = [
+/*var randdata = [
   {name: "Software Design",    value:  8},
   {name: "Real World Measurements",    value: 3 },
   {name: "Art of Approximation",     value: 15},
   {name: "UOCD",   value: 7},
   {name: "Linearity", value: 4},
   {name: "Computer Architecture",     value: 3}
-];
+];*/
 /*d3.select(".chart")
 	.selectAll("div")
 		.data(data)
 	.enter().append("div")
 		.style("height", function(d) { return d * 10 + "px"; })
 			.text(function(d) { return d; });*/
-graph(randdata, 300, 270, "#chart1");
-graph(randdata, 250, 300, "#chart2");
+//graph(randdata, 300, 270, "#chart1");
+//graph(randdata, 250, 300, "#chart2");
 //graph(randdata, 250, 270, 2);
 
 function graph(data, twidth, theight, div) {
-
 	d3.select(div)
 		.append("svg")
 			.classed("chart", true);

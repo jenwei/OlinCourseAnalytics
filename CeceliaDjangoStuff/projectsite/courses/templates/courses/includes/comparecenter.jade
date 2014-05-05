@@ -1,5 +1,8 @@
 
-h1{% if compare0 %} {{compare0}},  {%endif%} {% if compare1 %} {{compare1}} {%endif%}
+h1{% if maleratio %} {{maleratio}}  {%endif%} 
+//'maleratio':ratio['males'],'femaleratio':ratio['females'],'male1ratio':ratio1['males'],'female1ratio':ratio1['females'],'cc0stuCount': cc0stuCount, 'cc1stuCount':cc1stuCount}
 div(class="chartdiv", id="chart1")
 div(class="chartdiv", id="chart2")
 script(type="text/javascript", src='#{STATIC_URL}/courses/javascript/graphs.js')
+
+
