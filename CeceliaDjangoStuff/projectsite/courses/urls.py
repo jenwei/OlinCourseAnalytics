@@ -4,7 +4,7 @@ from courses import views
 
 urlpatterns = patterns('',
     url(r'^$', views.index, name='index'),
-    url(r'^advancedSearch/$', views.advanceSearch, name='courseSearch'),
+    url(r'^advanceSearch/$', views.advanceSearch, name='advanceSearch'),
     #url(r'^(?P<course_id>\d+)/$', views.course, name='course'),
     #url(r'^findCourse/$',views.singleCourseSearch, name='singleCourseSearch'),
     url(r'^compare/$', views.compare, name='compare'),

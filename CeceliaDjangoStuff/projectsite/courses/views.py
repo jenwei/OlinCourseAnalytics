@@ -81,7 +81,7 @@ def courseSearch(request):
 	return render(request,'courses/mainpage.jade',{'courseID':searched_course,'males':ratio["males"], 'females': ratio["females"],'popularityME':pop["ME"], 'popularityECE':pop["ECE"], 'popularityEConcentration':pop["EConcentration"], 'popularityUndeclared':pop["Undeclared"]})
 
 #ANYTHING ABOVE THIS POINT SHOULD WORK/HAS BEEN CHECKED----------------------------
-
+	
 def advanceSearch(request):
 	""" for the advanced search page - replaces the original split function & references splitside.jade """
 	majors_wanted = request.GET.getlist("majorsplit")
@@ -91,7 +91,10 @@ def advanceSearch(request):
 	#print majors_wanted
 	if len(majors_wanted) != 0:
 		for major in majors_wanted:
-			specifiedMajor = Course.student_set.filter(stumaj = major)
+			if major == "all":
+				specifiedMajor = Course.student_set.all()
+			else:
+				specifiedMajor = Course.student_set.filter(stumaj = major)
 		for m in specifiedMajors:
 			if m not in courses:
 				courses.append(m)
@@ -99,9 +102,12 @@ def advanceSearch(request):
 		choices = Course.objects.all()
 		for course in choices:
 			for color in colors_wanted:
+				print color
 				if color in course.name:
 					if course not in courses:
+						print course
 						courses.append(course)	
+	print courses
 	return render(request, 'courses/mainpage.jade', {"courses": courses})
 
 #HERE IS THE REAL COMPARE FUNCTION!
@@ -109,10 +115,7 @@ def compare(request):
 	error = 'NONE'
 	compare_courses = []
 	""" for the comparator page"""
-	#context = {'compare0':request.GET['cc0'], 'compare1':request.GET['cc1'], 'compare2':request.GET['cc2']}
-	#compare_course_0 = context['compare0']
-	#compare_course_1 = context['compare1']
-	#compare_course_2 = context['compare2']
+
 	if request.GET['cc0']:
 		compare_course_0 = request.GET['cc0']
 		cc0 = Datapoint.objects.filter(courseid = compare_course_0) | Datapoint.objects.filter(course = compare_course_0)
@@ -146,6 +149,11 @@ def compare(request):
 
 NOTES:
 
+#for the compare function
+	#context = {'compare0':request.GET['cc0'], 'compare1':request.GET['cc1'], 'compare2':request.GET['cc2']}
+	#compare_course_0 = context['compare0']
+	#compare_course_1 = context['compare1']
+	#compare_course_2 = context['compare2']
 
 def course_simple(request):
 #def course(request):
