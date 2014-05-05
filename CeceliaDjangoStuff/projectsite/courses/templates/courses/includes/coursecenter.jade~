@@ -2,5 +2,11 @@ h1 {{coursetitle}}
 h2 {{courseid}}
 div(id="course_info")
 	p {{description}}
-div(id="course_res")
-	p Popularity: {{popularity}}%
+div(id="course_res";style="text-align:center")
+	body
+	if popularity
+		|Popularity: {{popularity}}%
+	if males
+		|Males: {{males}}
+		|Females: {{females}}
+
